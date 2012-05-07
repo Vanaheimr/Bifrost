@@ -21,12 +21,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-using Newtonsoft.Json.Linq;
 using de.ahzf.Bifrost;
+
+using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace de.ahzf.Blueprints.HTTP
+namespace de.ahzf.Bifrost.HTTP
 {
 
     // General JSON format:

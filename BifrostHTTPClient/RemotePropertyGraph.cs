@@ -32,7 +32,7 @@ using de.ahzf.Hermod.Datastructures;
 
 #endregion
 
-namespace de.ahzf.Blueprints.HTTP.Client
+namespace de.ahzf.Bifrost.HTTP.Client
 {
 
     /// <summary>
