@@ -1,6 +1,6 @@
 ﻿/*
  * Copyright (c) 2010-2012, Achim 'ahzf' Friedland <achim@graph-database.org>
- * This file is part of Blueprints.NET <http://www.github.com/Vanaheimr/Blueprints.NET>
+ * This file is part of Bifrost <http://www.github.com/Vanaheimr/Bifrost>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ using NUnit.Framework;
 
 #endregion
 
-namespace de.ahzf.Blueprints.UnitTests.GraphServerTests
+namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
 {
 
     /// <summary>
