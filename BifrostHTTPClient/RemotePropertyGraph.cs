@@ -856,6 +856,23 @@ namespace de.ahzf.Bifrost.HTTP.Client
                 throw new NotImplementedException();
             }            
         }
+
+
+        public event VertexRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexRemoving;
+
+        public event VertexRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexRemoved;
+
+        public event EdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeRemoving;
+
+        public event EdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeRemoved;
+
+        public event MultiEdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeRemoving;
+
+        public event MultiEdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeRemoved;
+
+        public event HyperEdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoving;
+
+        public event HyperEdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoved;
     }
 
 }
