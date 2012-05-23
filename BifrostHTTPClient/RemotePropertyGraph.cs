@@ -29,6 +29,7 @@ using de.ahzf.Blueprints.PropertyGraphs;
 using de.ahzf.Blueprints.PropertyGraphs.InMemory;
 using de.ahzf.Hermod.HTTP;
 using de.ahzf.Hermod.Datastructures;
+using de.ahzf.Illias.Commons.Collections;
 
 #endregion
 
@@ -713,7 +714,7 @@ namespace de.ahzf.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        public event PropertyAdditionEventHandler<string, object> OnPropertyAddition;
+        public event PropertyAddingEventHandler<string, object> OnPropertyAddition;
 
         public event PropertyAddedEventHandler<string, object> OnPropertyAdded;
 
@@ -721,7 +722,7 @@ namespace de.ahzf.Bifrost.HTTP.Client
 
         public event PropertyChangedEventHandler<string, object> OnPropertyChanged;
 
-        public event PropertyRemovalEventHandler<string, object> OnPropertyRemoval;
+        public event PropertyRemovingEventHandler<string, object> OnPropertyRemoval;
 
         public event PropertyRemovedEventHandler<string, object> OnPropertyRemoved;
 
@@ -873,6 +874,10 @@ namespace de.ahzf.Bifrost.HTTP.Client
         public event HyperEdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoving;
 
         public event HyperEdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoved;
+
+        public event PropertyAddingEventHandler<string, object> OnPropertyAdding;
+
+        public event PropertyRemovingEventHandler<string, object> OnPropertyRemoving;
     }
 
 }
