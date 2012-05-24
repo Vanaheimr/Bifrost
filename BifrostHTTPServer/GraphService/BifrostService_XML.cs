@@ -25,13 +25,13 @@ using System.Collections.Generic;
 using de.ahzf.Illias.Commons;
 using de.ahzf.Hermod;
 using de.ahzf.Hermod.HTTP;
-using de.ahzf.Blueprints.PropertyGraphs;
+using de.ahzf.Vanaheimr.Blueprints;
 
 using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Server
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

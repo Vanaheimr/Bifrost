@@ -20,11 +20,11 @@
 using System;
 
 using de.ahzf.Hermod.Datastructures;
-using de.ahzf.Blueprints.PropertyGraphs;
+using de.ahzf.Vanaheimr.Blueprints;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Server
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

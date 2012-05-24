@@ -22,12 +22,10 @@ using System.Linq;
 using System.Collections.Generic;
 
 using de.ahzf.Illias.Commons;
-using de.ahzf.Blueprints.PropertyGraphs;
-using de.ahzf.Blueprints.PropertyGraphs.InMemory;
 using de.ahzf.Hermod.Datastructures;
-using de.ahzf.Bifrost.HTTP.Server;
 
 using NUnit.Framework;
+using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
 
 #endregion
 

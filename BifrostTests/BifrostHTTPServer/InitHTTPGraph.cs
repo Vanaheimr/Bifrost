@@ -19,11 +19,8 @@
 
 using System;
 
-using de.ahzf.Blueprints.PropertyGraphs;
-using de.ahzf.Blueprints.PropertyGraphs.InMemory;
-using de.ahzf.Bifrost.HTTP.Server;
-
 using NUnit.Framework;
+using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
 
 #endregion
 

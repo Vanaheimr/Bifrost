@@ -23,11 +23,11 @@ using System.Collections.Generic;
 using de.ahzf.Hermod;
 using de.ahzf.Hermod.HTTP;
 using de.ahzf.Hermod.Datastructures;
-using de.ahzf.Blueprints.PropertyGraphs;
+using de.ahzf.Vanaheimr.Blueprints;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Server
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

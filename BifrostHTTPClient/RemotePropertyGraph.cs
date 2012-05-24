@@ -25,15 +25,16 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 using de.ahzf.Illias.Commons;
-using de.ahzf.Blueprints.PropertyGraphs;
-using de.ahzf.Blueprints.PropertyGraphs.InMemory;
+using de.ahzf.Vanaheimr.Blueprints;
+using de.ahzf.Vanaheimr.Blueprints.InMemory;
 using de.ahzf.Hermod.HTTP;
 using de.ahzf.Hermod.Datastructures;
 using de.ahzf.Illias.Commons.Collections;
+using de.ahzf.Vanaheimr.Blueprints;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Client
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
 {
 
     /// <summary>

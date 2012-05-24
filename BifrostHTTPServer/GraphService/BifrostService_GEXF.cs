@@ -25,12 +25,12 @@ using System.Reflection;
 using de.ahzf.Illias.Commons;
 using de.ahzf.Hermod;
 using de.ahzf.Hermod.HTTP;
-using de.ahzf.Blueprints.PropertyGraphs;
+using de.ahzf.Vanaheimr.Blueprints;
 using System.Collections.Generic;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Server
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

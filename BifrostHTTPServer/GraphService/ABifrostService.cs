@@ -19,17 +19,17 @@
 
 using System;
 using System.Linq;
+using System.Threading;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 using de.ahzf.Illias.Commons;
-using de.ahzf.Blueprints.PropertyGraphs;
+using de.ahzf.Vanaheimr.Blueprints;
 using de.ahzf.Hermod.HTTP;
-using System.Threading;
-using System.Text.RegularExpressions;
 
 #endregion
 
-namespace de.ahzf.Bifrost.HTTP.Server
+namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

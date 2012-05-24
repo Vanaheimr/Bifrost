@@ -19,11 +19,10 @@
 
 using System;
 
-using de.ahzf.Styx;
+using de.ahzf.Vanaheimr.Blueprints;
+using de.ahzf.Vanaheimr.Styx;
 using de.ahzf.Vanaheimr.Hermod.Multicast;
 using de.ahzf.Hermod.Datastructures;
-
-using de.ahzf.Blueprints.PropertyGraphs;
 
 #endregion
 

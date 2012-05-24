@@ -19,9 +19,6 @@
 
 using System;
 
-using de.ahzf.Blueprints.PropertyGraphs;
-using de.ahzf.Blueprints.PropertyGraphs.InMemory;
-
 using NUnit.Framework;
 
 #endregion
