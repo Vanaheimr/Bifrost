@@ -879,6 +879,21 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
         public event PropertyAddingEventHandler<string, object> OnPropertyAdding;
 
         public event PropertyRemovingEventHandler<string, object> OnPropertyRemoving;
+
+
+
+
+
+        public Styx.IVotingNotification<Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnVertexAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+        public Styx.IVotingNotification<Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnEdgeAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
 }
