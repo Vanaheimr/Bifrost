@@ -47,26 +47,26 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <summary>
         /// The graph for this http request.
         /// </summary>
-        protected ThreadLocal<IGenericPropertyGraph <String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object>> Graph;
+        protected ThreadLocal<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> Graph;
                                             
         /// <summary>
         /// The vertex for this http request.
         /// </summary>
-        protected ThreadLocal<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object>> Vertex;
+        protected ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                             String, Int64, String, String, Object,
+                                                             String, Int64, String, String, Object,
+                                                             String, Int64, String, String, Object>> Vertex;
                                              
         /// <summary>
         /// The edge for this http request.
         /// </summary>
-        protected ThreadLocal<IGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object,
-                                                     String, Int64, String, String, Object>> Edge;
+        protected ThreadLocal<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object>> Edge;
 
         /// <summary>
         /// The 'Callback' parameter within the query string
@@ -141,20 +141,20 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentType, "GraphServer.resources.")
         {
 
-            this.Graph    = new ThreadLocal<IGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object>>();
+            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object>>();
 
-            this.Vertex   = new ThreadLocal<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object>>();
+            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object>>();
 
-            this.Edge     = new ThreadLocal<IGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object>>();
+            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object>>();
 
             this.Callback = new ThreadLocal<String>();
             this.Skip     = new ThreadLocal<UInt64>();
@@ -175,20 +175,20 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentTypes, "GraphServer.resources.")
         {
 
-            this.Graph  = new ThreadLocal<IGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Vertex = new ThreadLocal<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Edge   = new ThreadLocal<IGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
             this.Skip   = new ThreadLocal<UInt64>();
             this.Take   = new ThreadLocal<UInt64>();
@@ -209,20 +209,20 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentType, ResourcePath)
         {
 
-            this.Graph  = new ThreadLocal<IGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Vertex = new ThreadLocal<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Edge   = new ThreadLocal<IGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
             this.Skip   = new ThreadLocal<UInt64>();
             this.Take   = new ThreadLocal<UInt64>();
@@ -243,20 +243,20 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentTypes, ResourcePath)
         {
 
-            this.Graph  = new ThreadLocal<IGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Vertex = new ThreadLocal<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
-            this.Edge   = new ThreadLocal<IGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>();
+            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object,
+                                                                         String, Int64, String, String, Object>>();
 
             this.Skip   = new ThreadLocal<UInt64>();
             this.Take   = new ThreadLocal<UInt64>();
@@ -307,10 +307,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         protected void ParseVertexId(String VertexId)
         {
 
-            IGenericPropertyVertex<String, Int64, String, String, Object,
-                                   String, Int64, String, String, Object,
-                                   String, Int64, String, String, Object,
-                                   String, Int64, String, String, Object> _Vertex = null;
+            IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                           String, Int64, String, String, Object,
+                                           String, Int64, String, String, Object,
+                                           String, Int64, String, String, Object> _Vertex = null;
 
             if (!Graph.Value.TryGetVertexById(VertexId, out _Vertex))
 
@@ -337,10 +337,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         protected void ParseEdgeId(String EdgeId)
         {
 
-            IGenericPropertyEdge<String, Int64, String, String, Object,
-                                 String, Int64, String, String, Object,
-                                 String, Int64, String, String, Object,
-                                 String, Int64, String, String, Object> _Edge = null;
+            IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                         String, Int64, String, String, Object,
+                                         String, Int64, String, String, Object,
+                                         String, Int64, String, String, Object> _Edge = null;
 
             if (!Graph.Value.TryGetEdgeById(EdgeId, out _Edge))
 
@@ -513,10 +513,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Return general information of a graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                   String, Int64, String, String, Object,
-                                                   String, Int64, String, String, Object,
-                                                   String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object>>
 
             GET_GraphById_protected(String GraphId)
 
@@ -524,10 +524,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
             ParseGraphId(GraphId);
 
-            return new HTTPResult<IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                        String, Int64, String, String, Object,
-                                                        String, Int64, String, String, Object,
-                                                        String, Int64, String, String, Object>>(Graph.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
+                                                                String, Int64, String, String, Object,
+                                                                String, Int64, String, String, Object,
+                                                                String, Int64, String, String, Object>>(Graph.Value);
 
         }
 
@@ -579,10 +579,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             return HTTPErrors.HTTPErrorResponse(IHTTPConnection.InHTTPRequest, HTTPStatusCode.NotAcceptable);
         }
 
-        protected HTTPResult<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>>
 
             GET_VertexById_protected(String GraphId, String VertexId)
 
@@ -591,10 +591,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             ParseGraphId(GraphId);
             ParseVertexId(VertexId);
 
-            return new HTTPResult<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                         String, Int64, String, String, Object,
-                                                         String, Int64, String, String, Object,
-                                                         String, Int64, String, String, Object>>(Vertex.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                 String, Int64, String, String, Object,
+                                                                 String, Int64, String, String, Object,
+                                                                 String, Int64, String, String, Object>>(Vertex.Value);
 
         }
 
@@ -671,10 +671,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Return all vertices of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object>>>
 
             GET_Vertices_protected(String GraphId)
 
@@ -693,10 +693,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Vertices = _Vertices.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object>>>(_Vertices);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object>>>(_Vertices);
 
         }
 
@@ -717,10 +717,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Return all vertices of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object,
+                                                                        String, Int64, String, String, Object>>>
 
             FILTER_Vertices_protected(String GraphId)
 
@@ -739,10 +739,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Vertices = _Vertices.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object,
-                                                                     String, Int64, String, String, Object>>>(_Vertices);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object>>>(_Vertices);
 
         }
 
@@ -800,10 +800,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             return HTTPErrors.HTTPErrorResponse(IHTTPConnection.InHTTPRequest, HTTPStatusCode.NotAcceptable);
         }
 
-        protected HTTPResult<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                  String, Int64, String, String, Object,
-                                                  String, Int64, String, String, Object,
-                                                  String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                          String, Int64, String, String, Object,
+                                                          String, Int64, String, String, Object,
+                                                          String, Int64, String, String, Object>>
 
             GET_EdgeById_protected(String GraphId, String EdgeId)
         {
@@ -811,10 +811,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             ParseGraphId(GraphId);
             ParseEdgeId(EdgeId);
 
-            return new HTTPResult<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                       String, Int64, String, String, Object,
-                                                       String, Int64, String, String, Object,
-                                                       String, Int64, String, String, Object>>(Edge.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                               String, Int64, String, String, Object,
+                                                               String, Int64, String, String, Object,
+                                                               String, Int64, String, String, Object>>(Edge.Value);
 
         }
 
@@ -835,10 +835,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Return all edges of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object>>>
 
             GET_Edges_protected(String GraphId)
 
@@ -857,10 +857,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Edges = _Edges.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object>>>(_Edges);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object>>>(_Edges);
 
         }
 
@@ -881,10 +881,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Return all edges of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object,
-                                                              String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object,
+                                                                      String, Int64, String, String, Object>>>
 
             FILTER_Edges_protected(String GraphId)
 
@@ -903,10 +903,10 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Edges = _Edges.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object,
-                                                                   String, Int64, String, String, Object>>>(_Edges);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object,
+                                                                           String, Int64, String, String, Object>>>(_Edges);
 
         }
 

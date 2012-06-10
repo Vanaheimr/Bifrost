@@ -270,37 +270,43 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
 
         #region District of chaos, discord and confusion!
 
-        public IPropertyVertex AddVertex(VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
+
+        public Blueprints.IPropertyVertex AddVertex(Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyVertex AddVertex(ulong VertexId, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
+        public Blueprints.IPropertyVertex AddVertex(string VertexLabel, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyVertex AddVertex(IPropertyVertex Vertex)
+        public Blueprints.IPropertyVertex AddVertex(ulong VertexId, string VertexLabel, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyVertex VertexById(ulong VertexId)
+        public Blueprints.IPropertyVertex AddVertex(Blueprints.IPropertyVertex Vertex)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyVertex> VerticesById(params ulong[] VertexIds)
+        public Blueprints.IPropertyVertex VertexById(ulong VertexId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyVertex> VerticesByLabel(params string[] VertexLabels)
+        public IEnumerable<Blueprints.IPropertyVertex> VerticesById(params ulong[] VertexIds)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyVertex> Vertices(VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter = null)
+        public IEnumerable<Blueprints.IPropertyVertex> VerticesByLabel(params string[] VertexLabels)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IPropertyVertex> Vertices(Blueprints.VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter = null)
         {
             throw new NotImplementedException();
         }
@@ -310,57 +316,62 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        public void RemoveVertices(params IPropertyVertex[] Vertices)
+        public void RemoveVertices(params Blueprints.IPropertyVertex[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveVertices(VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter = null)
+        public void RemoveVertices(Blueprints.VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyEdge AddEdge(IPropertyVertex OutVertex, string Label, IPropertyVertex InVertex, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IPropertyEdge AddEdge(Blueprints.IPropertyVertex OutVertex, string Label, Blueprints.IPropertyVertex InVertex, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyEdge AddEdge(ulong EdgeId, IPropertyVertex OutVertex, string Label, IPropertyVertex InVertex, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IPropertyEdge AddEdge(ulong EdgeId, Blueprints.IPropertyVertex OutVertex, string Label, Blueprints.IPropertyVertex InVertex, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyEdge AddEdge(IPropertyVertex OutVertex, IPropertyVertex InVertex, string Label = default(String), EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IPropertyEdge AddEdge(Blueprints.IPropertyVertex OutVertex, Blueprints.IPropertyVertex InVertex, string Label = default(String), Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyEdge AddEdge(IPropertyVertex OutVertex, IPropertyVertex InVertex, ulong EdgeId, string Label = default(String), EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IPropertyEdge AddEdge(Blueprints.IPropertyVertex OutVertex, Blueprints.IPropertyVertex InVertex, ulong EdgeId, string Label = default(String), Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IPropertyEdge EdgeById(ulong EdgeId)
+        public Blueprints.IPropertyEdge AddEdge(Blueprints.IPropertyEdge IPropertyEdge)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyEdge> EdgesById(params ulong[] EdgeIds)
+        public Blueprints.IPropertyEdge EdgeById(ulong EdgeId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyEdge> EdgesByLabel(params string[] EdgeLabels)
+        public IEnumerable<Blueprints.IPropertyEdge> EdgesById(params ulong[] EdgeIds)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IPropertyEdge> Edges(EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
+        public IEnumerable<Blueprints.IPropertyEdge> EdgesByLabel(params string[] EdgeLabels)
         {
             throw new NotImplementedException();
         }
 
-        public ulong NumberOfEdges(EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
+        public IEnumerable<Blueprints.IPropertyEdge> Edges(Blueprints.EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ulong NumberOfEdges(Blueprints.EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
         {
             throw new NotImplementedException();
         }
@@ -370,145 +381,144 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        public void RemoveEdges(params IPropertyEdge[] Edges)
+        public void RemoveEdges(params Blueprints.IPropertyEdge[] Edges)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveEdges(EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
+        public void RemoveEdges(Blueprints.EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
         {
             throw new NotImplementedException();
         }
 
-        public event VertexAddingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexAdding;
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnVertexAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
 
-        IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer)
+        Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertex(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex)
+        Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(string Label, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public event VertexAddedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexAdded;
-
-        public void RemoveVertices(params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(ulong Id, string Label, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public event EdgeAddingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeAdding;
-
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertexIfNotExists(ulong Id, string Label, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null, Blueprints.VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AnywayDo = null)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(ulong EdgeId, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnVertexRemoval
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnEdgeAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, string Label = default(String), EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(ulong EdgeId, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, ulong EdgeId, string Label = default(String), EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdgeIfNotExists(ulong EdgeId, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null, Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AnywayDo = null)
         {
             throw new NotImplementedException();
         }
 
-        public event EdgeAddedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeAdded;
-
-        public void RemoveEdges(params IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Edges)
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, string Label = default(string), Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public event MultiEdgeAddingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeAdding;
-
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, ulong EdgeId, string Label = default(string), Blueprints.EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(string Label, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnEdgeRemoval
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnMultiEdgeAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(string Label, MultiEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeInitializer, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(string Label, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(ulong MultiEdgeId, string Label, MultiEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeInitializer, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(string Label, Blueprints.MultiEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeInitializer, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public event MultiEdgeAddedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeAdded;
-
-        public void RemoveMultiEdgesById(params ulong[] MultiEdgeIds)
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(ulong MultiEdgeId, string Label, Blueprints.MultiEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeInitializer, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveMultiEdges(params IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] MultiEdges)
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnMultiEdgeRemoval
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnHyperEdgeAddition
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveMultiEdges(MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(string Label, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public event HyperEdgeAddingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeAdding;
-
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(string Label, Blueprints.HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(string Label, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(ulong HyperEdgeId, string Label, Blueprints.HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(string Label, HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(Blueprints.IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, Blueprints.HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] InVertices)
         {
             throw new NotImplementedException();
         }
 
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(ulong HyperEdgeId, string Label, HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        public Styx.IVotingNotification<Blueprints.IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnHyperEdgeRemoval
         {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, HyperEdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeInitializer, params IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] InVertices)
-        {
-            throw new NotImplementedException();
-        }
-
-        public event HyperEdgeAddedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeAdded;
-
-        public void RemoveHyperEdgesById(params ulong[] HyperEdgeIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveHyperEdges(params IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] HyperEdges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveHyperEdges(HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
-        {
-            throw new NotImplementedException();
+            get { throw new NotImplementedException(); }
         }
 
         public void Clear()
@@ -516,104 +526,14 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VertexById(ulong VertexId)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VerticesById(params ulong[] VertexIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VerticesByLabel(params string[] VertexLabels)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.Vertices(VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter)
-        {
-            throw new NotImplementedException();
-        }
-
-        IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgeById(ulong EdgeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgesById(params ulong[] EdgeIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgesByLabel(params string[] EdgeLabels)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> IReadOnlyGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.Edges(EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeById(ulong MultiEdgeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdgesById(params ulong[] MultiEdgeIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdgesByLabel(params string[] MultiEdgeLabels)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdges(MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ulong NumberOfMultiEdges(MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeById(ulong HyperEdgeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdgesById(params ulong[] HyperEdgeIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdgesByLabel(params string[] HyperEdgeLabels)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdges(HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ulong NumberOfHyperEdges(HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public event GraphShuttingdownEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnGraphShuttingdown;
+        public event Blueprints.GraphShuttingdownEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnGraphShuttingdown;
 
         public void Shutdown(string Message = "")
         {
             throw new NotImplementedException();
         }
 
-        public event GraphShutteddownEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnGraphShutteddown;
+        public event Blueprints.GraphShutteddownEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnGraphShutteddown;
 
         public bool Equals(ulong other)
         {
@@ -635,12 +555,22 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             get { throw new NotImplementedException(); }
         }
 
+        public string Label
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public string IdKey
         {
             get { throw new NotImplementedException(); }
         }
 
         public string RevIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string DescriptionKey
         {
             get { throw new NotImplementedException(); }
         }
@@ -705,17 +635,187 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        public bool Equals(IReadOnlyGraphElement<ulong, long, string, string, object> other)
+        public bool Equals(Blueprints.IReadOnlyGraphElement<ulong, long, string, string, object> other)
         {
             throw new NotImplementedException();
         }
 
-        public int CompareTo(IReadOnlyGraphElement<ulong, long, string, string, object> other)
+        public int CompareTo(Blueprints.IReadOnlyGraphElement<ulong, long, string, string, object> other)
         {
             throw new NotImplementedException();
         }
 
-        public event PropertyAddingEventHandler<string, object> OnPropertyAddition;
+        Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Blueprints.IReadOnlyVertexMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VertexById(ulong VertexId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryGetVertexById(ulong VertexId, out Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyVertexMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VerticesById(params ulong[] VertexIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyVertexMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.VerticesByLabel(params string[] VertexLabels)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyVertexMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.Vertices(Blueprints.VertexFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Blueprints.IReadOnlyEdgeMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgeById(ulong EdgeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryGetEdgeById(ulong EdgeId, out Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Edge)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyEdgeMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgesById(params ulong[] EdgeIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyEdgeMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.EdgesByLabel(params string[] EdgeLabels)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> Blueprints.IReadOnlyEdgeMethods<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.Edges(Blueprints.EdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeById(ulong MultiEdgeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdgesById(params ulong[] MultiEdgeIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdgesByLabel(params string[] MultiEdgeLabels)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> MultiEdges(Blueprints.MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ulong NumberOfMultiEdges(Blueprints.MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeById(ulong HyperEdgeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdgesById(params ulong[] HyperEdgeIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdgesByLabel(params string[] HyperEdgeLabels)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>> HyperEdges(Blueprints.HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ulong NumberOfHyperEdges(Blueprints.HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertex(Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertexIfNotExists(Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex, Blueprints.CheckVertexExistance<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> CheckExistanceDelegate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveVertices(params Blueprints.IReadOnlyGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Vertices)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Edge)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdgeIfNotExists(Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Edge, Blueprints.CheckEdgeExistance<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> CheckExistanceDelegate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveEdges(params Blueprints.IReadOnlyGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] Edges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdge)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveMultiEdgesById(params ulong[] MultiEdgeIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveMultiEdges(params Blueprints.IReadOnlyGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] MultiEdges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveMultiEdges(Blueprints.MultiEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> MultiEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdge)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveHyperEdgesById(params ulong[] HyperEdgeIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveHyperEdges(params Blueprints.IReadOnlyGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>[] HyperEdges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveHyperEdges(Blueprints.HyperEdgeFilter<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> HyperEdgeFilter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public event PropertyAddingEventHandler<string, object> OnPropertyAdding;
 
         public event PropertyAddedEventHandler<string, object> OnPropertyAdded;
 
@@ -723,7 +823,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
 
         public event PropertyChangedEventHandler<string, object> OnPropertyChanged;
 
-        public event PropertyRemovingEventHandler<string, object> OnPropertyRemoval;
+        public event PropertyRemovingEventHandler<string, object> OnPropertyRemoving;
 
         public event PropertyRemovedEventHandler<string, object> OnPropertyRemoved;
 
@@ -747,153 +847,18 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             throw new NotImplementedException();
         }
 
-        public bool Equals(IGraphElement<ulong, long, string, string, object> other)
+        public bool Equals(Blueprints.IGraphElement<ulong, long, string, string, object> other)
         {
             throw new NotImplementedException();
         }
 
-        public int CompareTo(IGraphElement<ulong, long, string, string, object> other)
+        public int CompareTo(Blueprints.IGraphElement<ulong, long, string, string, object> other)
         {
             throw new NotImplementedException();
         }
 
         #endregion
 
-
-
-        public IPropertyVertex AddVertex(string VertexLabel, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IPropertyVertex AddVertex(ulong VertexId, string VertexLabel, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(string Label, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer)
-        {
-            throw new NotImplementedException();
-        }
-
-        IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>.AddVertex(ulong Id, string Label, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IPropertyEdge AddEdge(IPropertyEdge IPropertyEdge)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdge(IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyEdge)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddMultiEdge(IGenericPropertyMultiEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyMultiEdge)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddHyperEdge(IGenericPropertyHyperEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> IGenericPropertyHyperEdge)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-        public IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertexIfNotExists(ulong Id, string Label, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> VertexInitializer = null, VertexInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AnywayDo = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddVertexIfNotExists(IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex, CheckVertexExistance<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> CheckExistanceDelegate = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdgeIfNotExists(ulong EdgeId, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OutVertex, string Label, IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> InVertex, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> EdgeInitializer = null, EdgeInitializer<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AnywayDo = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> AddEdgeIfNotExists(IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Edge, CheckEdgeExistance<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> CheckExistanceDelegate = null)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public bool TryGetVertexById(ulong VertexId, out IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Vertex)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public bool TryGetEdgeById(ulong EdgeId, out IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> Edge)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public string DescriptionKey
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string Label
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        string ILabel<string>.Label
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }            
-        }
-
-
-        public event VertexRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexRemoving;
-
-        public event VertexRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnVertexRemoved;
-
-        public event EdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeRemoving;
-
-        public event EdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnEdgeRemoved;
-
-        public event MultiEdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeRemoving;
-
-        public event MultiEdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnMultiEdgeRemoved;
-
-        public event HyperEdgeRemovingEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoving;
-
-        public event HyperEdgeRemovedEventHandler<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object> OnHyperEdgeRemoved;
-
-        public event PropertyAddingEventHandler<string, object> OnPropertyAdding;
-
-        public event PropertyRemovingEventHandler<string, object> OnPropertyRemoving;
-
-
-
-
-
-        public Styx.IVotingNotification<Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IGenericPropertyVertex<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnVertexAddition
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-
-        public Styx.IVotingNotification<Blueprints.IGenericPropertyGraph<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, Blueprints.IGenericPropertyEdge<ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object, ulong, long, string, string, object>, bool> OnEdgeAddition
-        {
-            get { throw new NotImplementedException(); }
-        }
     }
 
 }
