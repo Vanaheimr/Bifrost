@@ -31,6 +31,7 @@ using de.ahzf.Hermod.HTTP;
 using de.ahzf.Hermod.Datastructures;
 using de.ahzf.Illias.Commons.Collections;
 using de.ahzf.Vanaheimr.Blueprints;
+using de.ahzf.Illias.Commons.Transactions;
 
 #endregion
 
@@ -859,6 +860,15 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
 
         #endregion
 
+
+
+        public Illias.Commons.Transactions.Transaction<ulong, ulong, IGenericPropertyGraph<UInt64, Int64, String, String, Object,
+                                                            UInt64, Int64, String, String, Object,
+                                                            UInt64, Int64, String, String, Object,
+                                                            UInt64, Int64, String, String, Object>> BeginTransaction(string Name = "", bool Distributed = false, bool LongRunning = false, Illias.Commons.Transactions.IsolationLevel IsolationLevel = IsolationLevel.Write, DateTime? CreationTime = null, DateTime? InvalidationTime = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
