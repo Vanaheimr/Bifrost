@@ -285,7 +285,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
                             StringBuilder.Append("<tr><td>").
                                           Append(KeyValuePair.Key.ToString()).
                                           Append("</td><td>").
-                                          Append(KeyValuePair.Value.ToString()).
+                                          Append((KeyValuePair.Value != null) ? KeyValuePair.Value.ToString() : "").
                                           Append("</td></tr>"));
 
                         StringBuilder.Append("</table>");
