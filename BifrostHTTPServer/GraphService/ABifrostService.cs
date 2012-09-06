@@ -25,7 +25,7 @@ using System.Text.RegularExpressions;
 
 using de.ahzf.Illias.Commons;
 using de.ahzf.Vanaheimr.Blueprints;
-using de.ahzf.Hermod.HTTP;
+using de.ahzf.Vanaheimr.Hermod.HTTP;
 
 #endregion
 

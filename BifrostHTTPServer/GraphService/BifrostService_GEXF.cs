@@ -23,8 +23,8 @@ using System.Text;
 using System.Reflection;
 
 using de.ahzf.Illias.Commons;
-using de.ahzf.Hermod;
-using de.ahzf.Hermod.HTTP;
+using de.ahzf.Vanaheimr.Hermod;
+using de.ahzf.Vanaheimr.Hermod.HTTP;
 using de.ahzf.Vanaheimr.Blueprints;
 using System.Collections.Generic;
 

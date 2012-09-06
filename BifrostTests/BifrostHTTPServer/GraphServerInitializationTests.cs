@@ -22,7 +22,7 @@ using System.Linq;
 using System.Collections.Generic;
 
 using de.ahzf.Illias.Commons;
-using de.ahzf.Hermod.Datastructures;
+using de.ahzf.Vanaheimr.Hermod.Datastructures;
 
 using NUnit.Framework;
 using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
