@@ -869,6 +869,30 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
         {
             throw new NotImplementedException();
         }
+
+
+        public bool HasVertexId(ulong VertexId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool HasEdgeId(ulong EdgeId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool HasMultiEdgeId(ulong MultiEdgeId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool HasHyperEdgeId(ulong HyperEdgeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -47,18 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BifrostHTTPServer.cs" />
-    <Compile Include="GraphService\IBifrostService.cs" />
-    <Compile Include="GraphService\BifrostService_GRAPHML.cs" />
-    <Compile Include="GraphService\BifrostService_GEXF.cs" />
-    <Compile Include="GraphService\BifrostService_XML.cs" />
+    <Compile Include="BifrostService\IBifrostService.cs" />
+    <Compile Include="BifrostService\BifrostService_GRAPHML.cs" />
+    <Compile Include="BifrostService\BifrostService_GEXF.cs" />
+    <Compile Include="BifrostService\BifrostService_XML.cs" />
     <Compile Include="IBifrostHTTPServer.cs" />
     <Compile Include="ExtentionMethodss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GraphService\ABifrostService.cs" />
-    <Compile Include="GraphService\BifrostService_ALL.cs" />
-    <Compile Include="GraphService\BifrostService_EVENTSTREAM.cs" />
-    <Compile Include="GraphService\BifrostService_HTML.cs" />
-    <Compile Include="GraphService\BifrostService_JSON.cs" />
+    <Compile Include="BifrostService\ABifrostService.cs" />
+    <Compile Include="BifrostService\BifrostService_ALL.cs" />
+    <Compile Include="BifrostService\BifrostService_EVENTSTREAM.cs" />
+    <Compile Include="BifrostService\BifrostService_HTML.cs" />
+    <Compile Include="BifrostService\BifrostService_JSON.cs" />
     <Compile Include="JSONResponseBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
