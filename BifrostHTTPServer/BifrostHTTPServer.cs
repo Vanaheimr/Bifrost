@@ -149,12 +149,13 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
         {
 
+            this.ServerName   = DefaultServerName;
+
             this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
                                                                              String, Int64, String, String, Object,
                                                                              String, Int64, String, String, Object,
                                                                              String, Int64, String, String, Object>>();
 
-            this.ServerName   = DefaultServerName;
             this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
                                                                               String, Int64, String, String, Object,
                                                                               String, Int64, String, String, Object,
@@ -172,13 +173,13 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IPPort  Port,
-                           Boolean Autostart = true)
+                                 Boolean Autostart = true)
 
             : base(IPv4Address.Any, Port, Autostart: Autostart)
 
         {
 
-            this.ServerName = DefaultServerName;
+            this.ServerName   = DefaultServerName;
 
             this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
                                                                              String, Int64, String, String, Object,
@@ -203,19 +204,19 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IIPAddress IIPAddress,
-                           IPPort     Port,
-                           Boolean    Autostart = true)
+                                 IPPort     Port,
+                                 Boolean    Autostart = true)
 
             : base(IIPAddress, Port, Autostart: Autostart)
 
         {
 
-            this.ServerName = DefaultServerName;
+            this.ServerName   = DefaultServerName;
 
-            this.GraphLookup = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object>>();
+            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object>>();
 
             this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
                                                                               String, Int64, String, String, Object,
@@ -234,18 +235,18 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IPSocket">The listening IPSocket.</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IPSocket IPSocket,
-                           Boolean  Autostart = true)
+                                 Boolean  Autostart = true)
 
             : base(IPSocket.IPAddress, IPSocket.Port, Autostart: Autostart)
 
         {
 
-            this.ServerName = DefaultServerName;
+            this.ServerName   = DefaultServerName;
 
-            this.GraphLookup = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object,
-                                                                            String, Int64, String, String, Object>>();
+            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object,
+                                                                             String, Int64, String, String, Object>>();
 
             this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
                                                                               String, Int64, String, String, Object,
