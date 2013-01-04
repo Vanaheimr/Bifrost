@@ -1,0 +1,3 @@
+[submodule "libs/Hermod"]
+	path = libs/Hermod
+	url = git://github.com/Vanaheimr/Hermod.git
