@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyGraphs", "libs\Blue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraversalGraphs", "libs\Blueprints.NET\TraversalGraphs\TraversalGraphs.csproj", "{F5CE7102-FE69-4D39-88B9-7FA3E8EE1C5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BifrostHTTPServer", "BifrostHTTPServer\BifrostHTTPServer.csproj", "{DC46B5EF-ECC5-465E-B1C4-85596343A03F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BifrostHTTPClient", "BifrostHTTPClient\BifrostHTTPClient.csproj", "{EB31E37B-FA75-44FD-9528-171C9E7C3C37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +163,14 @@ Global
 		{F5CE7102-FE69-4D39-88B9-7FA3E8EE1C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5CE7102-FE69-4D39-88B9-7FA3E8EE1C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5CE7102-FE69-4D39-88B9-7FA3E8EE1C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC46B5EF-ECC5-465E-B1C4-85596343A03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC46B5EF-ECC5-465E-B1C4-85596343A03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC46B5EF-ECC5-465E-B1C4-85596343A03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC46B5EF-ECC5-465E-B1C4-85596343A03F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB31E37B-FA75-44FD-9528-171C9E7C3C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB31E37B-FA75-44FD-9528-171C9E7C3C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB31E37B-FA75-44FD-9528-171C9E7C3C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB31E37B-FA75-44FD-9528-171C9E7C3C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
