@@ -48,6 +48,10 @@
       <Project>{F6FA73F9-14B4-4033-AAFE-9BFA66BD98F5}</Project>
       <Name>Bifrost</Name>
     </ProjectReference>
+    <ProjectReference Include="..\libs\Blueprints.NET\Blueprints\Blueprints.csproj">
+      <Project>{47FA1E7C-8C47-493D-A371-91A15D53BC95}</Project>
+      <Name>Blueprints</Name>
+    </ProjectReference>
     <ProjectReference Include="..\libs\Hermod\HermodMulticast\HermodMulticast.csproj">
       <Project>{18360D99-87C2-479C-AB52-55D0BCA9B000}</Project>
       <Name>HermodMulticast</Name>
