@@ -51,7 +51,7 @@
     <Compile Include="BifrostService\BifrostService_GEXF.cs" />
     <Compile Include="BifrostService\BifrostService_XML.cs" />
     <Compile Include="IBifrostHTTPServer.cs" />
-    <Compile Include="ExtentionMethodss.cs" />
+    <Compile Include="ExtentionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BifrostService\ABifrostService.cs" />
     <Compile Include="BifrostService\BifrostService_ALL.cs" />

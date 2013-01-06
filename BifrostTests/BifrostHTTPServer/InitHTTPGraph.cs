@@ -19,8 +19,9 @@
 
 using System;
 
-using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
 using NUnit.Framework;
+
+using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
 
 #endregion
 
