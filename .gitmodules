@@ -1,6 +1,0 @@
-[submodule "libs/Hermod"]
-	path = libs/Hermod
-	url = git://github.com/Vanaheimr/Hermod.git
-[submodule "libs/Blueprints.NET"]
-	path = libs/Blueprints.NET
-	url = git://github.com/Vanaheimr/Blueprints.NET.git
