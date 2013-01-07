@@ -56,7 +56,7 @@
       <Project>{47FA1E7C-8C47-493D-A371-91A15D53BC95}</Project>
       <Name>Blueprints</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Vanaheimr\Hermod\HermodMulticast\HermodMulticast.csproj">
+    <ProjectReference Include="..\..\Hermod\HermodMulticast\HermodMulticast.csproj">
       <Project>{18360D99-87C2-479C-AB52-55D0BCA9B000}</Project>
       <Name>HermodMulticast</Name>
     </ProjectReference>

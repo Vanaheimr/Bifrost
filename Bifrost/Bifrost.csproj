@@ -51,7 +51,7 @@
     <Compile Include="Tokens.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vanaheimr\Hermod\HermodHTTPClient\HermodHTTPClient.csproj">
+    <ProjectReference Include="..\..\Hermod\HermodHTTPClient\HermodHTTPClient.csproj">
       <Project>{0AB343E8-AA69-4685-9676-BFA27E418A20}</Project>
       <Name>HermodHTTPClient</Name>
     </ProjectReference>
