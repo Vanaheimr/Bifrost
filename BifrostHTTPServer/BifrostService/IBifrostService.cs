@@ -46,7 +46,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// Get Events
         /// </summary>
         /// <returns>Endless text</returns>
-        [HTTPEventMappingAttribute("GraphEvents", "/Events"), NoAuthentication]
+        [HTTPEventMappingAttribute("GraphEvents", "/Events", HTTPMethods.GET), NoAuthentication]
         HTTPResponse GetEvents();
 
         #endregion

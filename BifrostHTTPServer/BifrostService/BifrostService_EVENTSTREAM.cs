@@ -83,7 +83,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
                 _LastEventId = _Client_LastEventId + 1;
 
             var _Random = new Random();
-            _EventSource.Submit("vertexadded", "{\"radius\": " + _Random.Next(5, 50) + ", \"x\": " + _Random.Next(50, 550) + ", \"y\": " + _Random.Next(50, 350) + "}");
+            _EventSource.SubmitSubEvent("vertexadded", "{\"radius\": " + _Random.Next(5, 50) + ", \"x\": " + _Random.Next(50, 550) + ", \"y\": " + _Random.Next(50, 350) + "}");
 
             //var _ResourceContent = new StringBuilder();
             //_ResourceContent.AppendLine("event:vertexadded");
