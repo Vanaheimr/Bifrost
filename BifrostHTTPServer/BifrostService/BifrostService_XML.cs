@@ -93,7 +93,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
             var _Content = new JObject(
                                    new JProperty("AllGraphs",
                                        new JObject(
-                                           from Graph in GraphServer select new JProperty(Graph.Id.ToString(), Graph.Description)
+                                           from Graph in GraphServer select new JProperty(Graph.Id.ToString(), Graph["Description"])
                                        )
                                    )
                                ).ToString();

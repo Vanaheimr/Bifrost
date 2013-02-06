@@ -91,7 +91,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
                 StringBuilder.AppendLine("<gexf xmlns=\"http://www.gexf.net/1.2draft\" version=\"1.2\">");
                 StringBuilder.AppendLine("  <meta lastmodifieddate=\"2009-03-20\">");
                 StringBuilder.AppendLine("    <creator>Vanaheimr Walkyr</creator>");
-                StringBuilder.AppendLine("    <description>" + GraphResult.Data.Description + "</description>");
+                StringBuilder.AppendLine("    <description>" + GraphResult.Data["Description"] + "</description>");
                 StringBuilder.AppendLine("  </meta>");
                 StringBuilder.AppendLine("  <graph mode=\"static\" defaultedgetype=\"directed\">");
                 StringBuilder.AppendLine("    <nodes>");

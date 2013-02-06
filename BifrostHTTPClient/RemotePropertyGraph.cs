@@ -490,18 +490,6 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
             get { throw new NotImplementedException(); }
         }
 
-        TValueVertex IDescription<TValueVertex>.Description
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public TKeyVertex IdKey
         {
             get { throw new NotImplementedException(); }
@@ -870,6 +858,47 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Client
         }
 
         public TKeyEdge EdgeDescriptionKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+        public TKeyMultiEdge MultiEdgeIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyMultiEdge MultiEdgeRevIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyMultiEdge MultiEdgeLabelKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyMultiEdge MultiEdgeDescriptionKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyHyperEdge HyperEdgeIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyHyperEdge HyperEdgeRevIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyHyperEdge HyperEdgeLabelKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyHyperEdge HyperEdgeDescriptionKey
         {
             get { throw new NotImplementedException(); }
         }

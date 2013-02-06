@@ -109,7 +109,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         public override HTTPResponse GET_Graphs()
         {
 
-            var AllGraphs = GraphServer.Select(graph => "<a href=\"/graph/" + graph.Id + "\">" + graph.Id + " - " + graph.Description + "</a> " +
+            var AllGraphs = GraphServer.Select(graph => "<a href=\"/graph/" + graph.Id + "\">" + graph.Id + " - " + graph["Description"] + "</a> " +
                                                         "<a href=\"/graph/" + graph.Id + "/vertices\">[All Vertices]</a> " +
                                                         "<a href=\"/graph/" + graph.Id + "/edges\">[All Edge]</a>").
                                         Aggregate((a, b) => a + "<br>" + b);
@@ -172,7 +172,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
                 StringBuilder.Append("<tr><td>Id</td><td>").                  Append(GraphResult.Data.Id).                  AppendLine("</td></tr>").
                               Append("<tr><td>RevisionId</td><td>").          Append(GraphResult.Data.RevId).               AppendLine("</td></tr>").
-                              Append("<tr><td>Description</td><td>").         Append(GraphResult.Data.Description).         AppendLine("</td></tr>").
+                              Append("<tr><td>Description</td><td>").         Append(GraphResult.Data["Description"]).      AppendLine("</td></tr>").
                               AppendLine("<tr><td>&nbsp;</td></tr>").
                               Append("<tr><td>Number of vertices</td><td>").  Append(GraphResult.Data.NumberOfVertices()).  AppendLine("</td></tr>").
                               Append("<tr><td>Number of edges</td><td>").     Append(GraphResult.Data.NumberOfEdges()).     AppendLine("</td></tr>").
@@ -184,7 +184,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
                     {
                         if (KeyValuePair.Key != GraphResult.Data.IdKey &&
                             KeyValuePair.Key != GraphResult.Data.RevIdKey &&
-                            KeyValuePair.Key != GraphResult.Data.DescriptionKey)
+                            KeyValuePair.Key != GraphResult.Data.LabelKey)
                             StringBuilder.Append("<tr><td>").
                                           Append(KeyValuePair.Key.ToString()).
                                           Append("</td><td>").
