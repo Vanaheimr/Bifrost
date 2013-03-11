@@ -48,13 +48,13 @@
     <Compile Include="MulticastVertexSender.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Blueprints.NET\Balder\Balder.csproj">
+      <Project>{D2B4E7C7-0524-4DE5-9D62-2DE05682A74D}</Project>
+      <Name>Balder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bifrost\Bifrost.csproj">
       <Project>{F6FA73F9-14B4-4033-AAFE-9BFA66BD98F5}</Project>
       <Name>Bifrost</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Blueprints.NET\Blueprints\Blueprints.csproj">
-      <Project>{47FA1E7C-8C47-493D-A371-91A15D53BC95}</Project>
-      <Name>Blueprints</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodMulticast\HermodMulticast.csproj">
       <Project>{18360D99-87C2-479C-AB52-55D0BCA9B000}</Project>

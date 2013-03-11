@@ -21,7 +21,9 @@ using System;
 
 using NUnit.Framework;
 
-using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
+using eu.Vanaheimr.Bifrost.HTTP.Server;
+using eu.Vanaheimr.Balder.InMemory;
+using eu.Vanaheimr.Illias.Commons.Votes;
 
 #endregion
 
@@ -37,7 +39,7 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
 
         protected IBifrostHTTPServer CreateGraph(String GraphId)
         {
-            var GraphServer = new BifrostHTTPServer();
+            var GraphServer = new BifrostHTTPServer((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init));
             GraphServer.CreateNewGraph(GraphId);
             return GraphServer;
         }

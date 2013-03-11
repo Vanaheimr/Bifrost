@@ -21,11 +21,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-using de.ahzf.Illias.Commons;
-using de.ahzf.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Illias.Commons;
+using eu.Vanaheimr.Hermod.Datastructures;
 
 using NUnit.Framework;
-using de.ahzf.Vanaheimr.Bifrost.HTTP.Server;
+using eu.Vanaheimr.Bifrost.HTTP.Server;
+using eu.Vanaheimr.Illias.Commons.Votes;
+using eu.Vanaheimr.Balder.InMemory;
 
 #endregion
 
@@ -45,7 +47,7 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void GraphServerConstructorTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080)) {
+            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
                                          ServerName = "GraphServer v0.1"
                                      } as IBifrostHTTPServer)
             {
@@ -78,7 +80,7 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void AddPropertyGraphTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080)) {
+            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
                                          ServerName = "GraphServer v0.1"
                                      } as IBifrostHTTPServer)
             {
@@ -111,7 +113,7 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void NewPropertyGraphTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080)) {
+            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
                                          ServerName = "GraphServer v0.1"
                                      } as IBifrostHTTPServer)
             {

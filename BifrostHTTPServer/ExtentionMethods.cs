@@ -19,12 +19,12 @@
 
 using System;
 
-using de.ahzf.Vanaheimr.Hermod.Datastructures;
-using de.ahzf.Vanaheimr.Blueprints;
+using eu.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Balder;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
+namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>
@@ -41,14 +41,14 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Graph">A graph.</param>
         /// <param name="Autostart">Autostart the server.</param>
         public static IBifrostHTTPServer StartHTTPServer(this IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object> Graph,
-                                                   Boolean Autostart = false)
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object> Graph,
+                                                         Boolean Autostart = false)
 
         {
 
-            var Server = new BifrostHTTPServer();
+            var Server = new BifrostHTTPServer((GraphId, Description, GraphInitializer) => Graph);
             Server.AddGraph(Graph);
 
             if (Autostart)
@@ -69,15 +69,15 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port.</param>
         /// <param name="Autostart">Autostart the server.</param>
         public static IBifrostHTTPServer StartHTTPServer(this IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object> Graph,
-                                                   IPPort Port,
-                                                   Boolean Autostart = false)
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object> Graph,
+                                                         IPPort Port,
+                                                         Boolean Autostart = false)
 
         {
 
-            var Server = new BifrostHTTPServer(Port, Autostart);
+            var Server = new BifrostHTTPServer(Port, (GraphId, Description, GraphInitializer) => Graph, Autostart);
             Server.AddGraph(Graph);
             return Server;
 
@@ -95,16 +95,16 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port.</param>
         /// <param name="Autostart">Autostart the server.</param>
         public static IBifrostHTTPServer StartHTTPServer(this IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object> Graph,
-                                                   IIPAddress IIPAddress,
-                                                   IPPort     Port,
-                                                   Boolean    Autostart = false)
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object> Graph,
+                                                         IIPAddress IIPAddress,
+                                                         IPPort     Port,
+                                                         Boolean    Autostart = false)
 
         {
 
-            var Server = new BifrostHTTPServer(IIPAddress, Port, Autostart);
+            var Server = new BifrostHTTPServer(IIPAddress, Port, (GraphId, Description, GraphInitializer) => Graph, Autostart);
             Server.AddGraph(Graph);
             return Server;
 
@@ -121,15 +121,15 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IPSocket">The listening IPSocket.</param>
         /// <param name="Autostart">Autostart the server.</param>
         public static IBifrostHTTPServer StartHTTPServer(this IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object> Graph,
-                                                   IPSocket IPSocket,
-                                                   Boolean Autostart = false)
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object,
+                                                                                    String, Int64, String, String, Object> Graph,
+                                                         IPSocket IPSocket,
+                                                         Boolean Autostart = false)
 
         {
 
-            var Server = new BifrostHTTPServer(IPSocket, Autostart);
+            var Server = new BifrostHTTPServer(IPSocket, (GraphId, Description, GraphInitializer) => Graph, Autostart);
             Server.AddGraph(Graph);
             return Server;
 

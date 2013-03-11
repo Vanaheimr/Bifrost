@@ -21,14 +21,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-using de.ahzf.Vanaheimr.Blueprints;
-using de.ahzf.Vanaheimr.Blueprints.InMemory;
-using de.ahzf.Vanaheimr.Hermod.HTTP;
-using de.ahzf.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Balder;
+using eu.Vanaheimr.Hermod.HTTP;
+using eu.Vanaheimr.Hermod.Datastructures;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
+namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
     #region BifrostHTTPServer
@@ -44,7 +43,19 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <summary>
         /// Initialize the Bifrost HTTP server using IPAddress.Any, http port 8182 and start the server.
         /// </summary>
-        public BifrostHTTPServer()
+        public BifrostHTTPServer(Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator)
+
+            : base(NewGraphCreator)
+
         {
             base.OnNewHTTPService += GraphService => { GraphService.GraphServer = this; };
         }
@@ -59,12 +70,24 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IPPort  Port,
-                           Boolean Autostart = true)
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
+                                 Boolean Autostart = true)
 
-            : base(Port, Autostart)
-        
+            : base(Port, NewGraphCreator, Autostart)
+
         {
+
             base.OnNewHTTPService += GraphService => { GraphService.GraphServer = this; };
+
         }
 
         #endregion
@@ -78,10 +101,20 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="Port">The listening port</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IIPAddress IIPAddress,
-                           IPPort     Port,
-                           Boolean    Autostart = false)
+                                 IPPort     Port,
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
+                                 Boolean    Autostart = false)
 
-            : base(IIPAddress, Port, Autostart)
+            : base(IIPAddress, Port, NewGraphCreator, Autostart)
 
         {
             base.OnNewHTTPService += GraphService => { GraphService.GraphServer = this; };
@@ -97,9 +130,19 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IPSocket">The listening IPSocket.</param>
         /// <param name="Autostart"></param>
         public BifrostHTTPServer(IPSocket IPSocket,
-                           Boolean  Autostart = true)
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
+                                 Boolean  Autostart = true)
 
-            : base(IPSocket.IPAddress, IPSocket.Port, Autostart)
+            : base(IPSocket.IPAddress, IPSocket.Port, NewGraphCreator, Autostart)
 
         {
             base.OnNewHTTPService += GraphService => { GraphService.GraphServer = this; };
@@ -125,6 +168,17 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
         #region Data
 
+        private readonly Func<String,
+                              String,
+                              GraphInitializer<String, Int64, String, String, Object,
+                                               String, Int64, String, String, Object,
+                                               String, Int64, String, String, Object,
+                                               String, Int64, String, String, Object>,
+                              IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object>> NewGraphCreator;
+
         private readonly IDictionary<String, IGenericPropertyGraph <String, Int64, String, String, Object,
                                                                     String, Int64, String, String, Object,
                                                                     String, Int64, String, String, Object,
@@ -139,119 +193,167 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
         #region Constructor(s)
 
-        #region BifrostHTTPServer()
+        #region BifrostHTTPServer(NewGraphCreator)
 
         /// <summary>
         /// Initialize the Bifrost HTTP server using IPAddress.Any, http port 8182 and start the server.
         /// </summary>
-        public BifrostHTTPServer()
+        /// <param name="NewGraphCreator">A delegate to create a new property graph.</param>
+        public BifrostHTTPServer(Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator)
+
             : base(IPv4Address.Any, new IPPort(8080), Autostart: true)
 
         {
 
-            this.ServerName   = DefaultServerName;
+            this.ServerName       = DefaultServerName;
+            this.NewGraphCreator  = NewGraphCreator;
 
-            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>();
+            this.GraphLookup      = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object>>();
 
-            this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object>>();
+            this.VertexLookup     = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
         }
 
         #endregion
 
-        #region BifrostHTTPServer(Port, AutoStart = true)
+        #region BifrostHTTPServer(Port, NewGraphCreator, AutoStart = true)
 
         /// <summary>
         /// Initialize the Bifrost HTTP server using IPAddress.Any and the given parameters.
         /// </summary>
         /// <param name="Port">The listening port</param>
-        /// <param name="Autostart"></param>
+        /// <param name="NewGraphCreator">A delegate to create a new property graph.</param>
+        /// <param name="Autostart">Autostart the http server.</param>
         public BifrostHTTPServer(IPPort  Port,
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
                                  Boolean Autostart = true)
 
             : base(IPv4Address.Any, Port, Autostart: Autostart)
 
         {
 
-            this.ServerName   = DefaultServerName;
+            this.ServerName       = DefaultServerName;
+            this.NewGraphCreator  = NewGraphCreator;
 
-            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>();
+            this.GraphLookup      = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object,
+                                                                                 String, Int64, String, String, Object>>();
 
-            this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object>>();
+            this.VertexLookup     = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
         }
 
         #endregion
 
-        #region BifrostHTTPServer(IIPAddress, Port, AutoStart = true)
+        #region BifrostHTTPServer(IIPAddress, Port, NewGraphCreator, AutoStart = true)
 
         /// <summary>
         /// Initialize the Bifrost HTTP server using the given parameters.
         /// </summary>
         /// <param name="IIPAddress">The listening IP address(es)</param>
         /// <param name="Port">The listening port</param>
-        /// <param name="Autostart"></param>
+        /// <param name="NewGraphCreator">A delegate to create a new property graph.</param>
+        /// <param name="Autostart">Autostart the http server.</param>
         public BifrostHTTPServer(IIPAddress IIPAddress,
                                  IPPort     Port,
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
                                  Boolean    Autostart = true)
 
             : base(IIPAddress, Port, Autostart: Autostart)
 
         {
 
-            this.ServerName   = DefaultServerName;
+            this.ServerName       = DefaultServerName;
+            this.NewGraphCreator  = NewGraphCreator;
 
-            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>();
+            this.GraphLookup      = new Dictionary<String, IGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
-            this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object>>();
+            this.VertexLookup     = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
         }
 
         #endregion
 
-        #region BifrostHTTPServer(IPSocket, Autostart = true)
+        #region BifrostHTTPServer(IPSocket, NewGraphCreator, Autostart = true)
 
         /// <summary>
         /// Initialize the Bifrost HTTP server using the given parameters.
         /// </summary>
         /// <param name="IPSocket">The listening IPSocket.</param>
-        /// <param name="Autostart"></param>
+        /// <param name="NewGraphCreator">A delegate to create a new property graph.</param>
+        /// <param name="Autostart">Autostart the http server.</param>
         public BifrostHTTPServer(IPSocket IPSocket,
+                                 Func<String,
+                                      String,
+                                      GraphInitializer<String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object,
+                                                       String, Int64, String, String, Object>,
+                                      IGenericPropertyGraph<String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object,
+                                                            String, Int64, String, String, Object>> NewGraphCreator,
                                  Boolean  Autostart = true)
 
             : base(IPSocket.IPAddress, IPSocket.Port, Autostart: Autostart)
 
         {
 
-            this.ServerName   = DefaultServerName;
+            this.ServerName       = DefaultServerName;
+            this.NewGraphCreator  = NewGraphCreator;
 
-            this.GraphLookup  = new Dictionary<String, IGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>();
+            this.GraphLookup      = new Dictionary<String, IGenericPropertyGraph <String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
-            this.VertexLookup = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object,
-                                                                              String, Int64, String, String, Object>>();
+            this.VertexLookup     = new Dictionary<String, IGenericPropertyVertex<String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object,
+                                                                                  String, Int64, String, String, Object>>();
 
         }
 
@@ -308,7 +410,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
         {
 
-            return AddGraph(GraphFactory.CreateGenericPropertyGraph_WithStringIds(GraphId, Description, GraphInitializer: GraphInitializer));
+            return AddGraph(NewGraphCreator(GraphId, Description, GraphInitializer));
 
         }
 

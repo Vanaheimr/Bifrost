@@ -21,7 +21,7 @@ using System;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost
+namespace eu.Vanaheimr.Bifrost
 {
 
     public static class Tokens

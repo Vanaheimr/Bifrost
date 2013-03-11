@@ -23,13 +23,13 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-using de.ahzf.Illias.Commons;
-using de.ahzf.Vanaheimr.Blueprints;
-using de.ahzf.Vanaheimr.Hermod.HTTP;
+using eu.Vanaheimr.Illias.Commons;
+using eu.Vanaheimr.Balder;
+using eu.Vanaheimr.Hermod.HTTP;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
+namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

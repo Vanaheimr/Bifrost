@@ -19,14 +19,14 @@
 
 using System;
 
-using de.ahzf.Vanaheimr.Blueprints;
-using de.ahzf.Vanaheimr.Styx;
-using de.ahzf.Vanaheimr.Hermod.Multicast;
-using de.ahzf.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Balder;
+using eu.Vanaheimr.Styx;
+using eu.Vanaheimr.Hermod.Multicast;
+using eu.Vanaheimr.Hermod.Datastructures;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.Multicast
+namespace eu.Vanaheimr.Bifrost.Multicast
 {
 
     /// <summary>

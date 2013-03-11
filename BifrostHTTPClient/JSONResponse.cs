@@ -21,13 +21,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-using de.ahzf.Vanaheimr.Bifrost;
+using eu.Vanaheimr.Bifrost;
 
 using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP
+namespace eu.Vanaheimr.Bifrost.HTTP
 {
 
     // General JSON format:

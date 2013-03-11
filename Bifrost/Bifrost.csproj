@@ -51,6 +51,10 @@
     <Compile Include="Tokens.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Blueprints.NET\Balder\Balder.csproj">
+      <Project>{D2B4E7C7-0524-4DE5-9D62-2DE05682A74D}</Project>
+      <Name>Balder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodHTTPClient\HermodHTTPClient.csproj">
       <Project>{0AB343E8-AA69-4685-9676-BFA27E418A20}</Project>
       <Name>HermodHTTPClient</Name>

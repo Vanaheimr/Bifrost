@@ -19,11 +19,11 @@
 
 using System;
 
-using de.ahzf.Vanaheimr.Hermod.HTTP;
+using eu.Vanaheimr.Hermod.HTTP;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
+namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>

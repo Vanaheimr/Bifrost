@@ -20,14 +20,14 @@
 using System;
 using System.Collections.Generic;
 
-using de.ahzf.Vanaheimr.Hermod;
-using de.ahzf.Vanaheimr.Hermod.HTTP;
-using de.ahzf.Vanaheimr.Hermod.Datastructures;
-using de.ahzf.Vanaheimr.Blueprints;
+using eu.Vanaheimr.Hermod;
+using eu.Vanaheimr.Hermod.HTTP;
+using eu.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Balder;
 
 #endregion
 
-namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
+namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
     /// <summary>
