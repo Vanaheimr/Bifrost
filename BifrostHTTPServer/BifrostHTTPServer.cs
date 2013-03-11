@@ -308,7 +308,7 @@ namespace de.ahzf.Vanaheimr.Bifrost.HTTP.Server
 
         {
 
-            return AddGraph(GraphFactory.CreateGenericPropertyGraph_WithStringIds(GraphId, Description, GraphInitializer));
+            return AddGraph(GraphFactory.CreateGenericPropertyGraph_WithStringIds(GraphId, Description, GraphInitializer: GraphInitializer));
 
         }
 
