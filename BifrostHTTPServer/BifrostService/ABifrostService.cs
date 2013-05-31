@@ -36,37 +36,97 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
     /// This class provides the generic IBifrostService functionality
     /// without being bound to any specific content representation.
     /// </summary>
-    public abstract class ABifrostService : AHTTPService,
-                                            IBifrostService
+    public abstract class ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                          TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                          TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                          TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+
+                                          : AHTTPService,
+                                            IBifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                            TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                            TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                            TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+
+
+        where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
+        where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
+        where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
+        where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
+
+        where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
+        where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
+        where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
+        where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
+
+        where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
+        where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
+        where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
+        where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
+
+        where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
+        where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
+        where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
+        where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
+
     {
+
+        public Func<String, TIdVertex>     VertexIdParser    { get; set; }
+        public Func<String, TIdEdge>       EdgeIdParser      { get; set; }
+        public Func<String, TIdMultiEdge>  MultiEdgeIdParser { get; set; }
+        public Func<String, TIdHyperEdge>  HyperEdgeIdParser { get; set; }
+
+        public Func<String, TKeyVertex>    VertexPropertyKeyParser     { get; set; }
+        public Func<String, TKeyEdge>      EdgePropertyKeyParser       { get; set; }
+        public Func<String, TKeyMultiEdge> MultiEdgePropertyKeyParser  { get; set; }
+        public Func<String, TKeyHyperEdge> HeyperEdgePropertyKeyParser { get; set; }
+
 
         #region Data
 
         private ThreadLocal<HTTPResponse> HTTPErrorResponse;
 
+
         /// <summary>
-        /// The graph for this http request.
+        /// The graph parameter for this http request.
         /// </summary>
-        protected ThreadLocal<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object>> Graph;
-                                            
+        protected ThreadLocal<IReadOnlyGenericPropertyGraph<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                            TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                            TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                            TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Graph;
+
         /// <summary>
-        /// The vertex for this http request.
+        /// The vertex parameter for this http request.
         /// </summary>
-        protected ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                             String, Int64, String, String, Object,
-                                                             String, Int64, String, String, Object,
-                                                             String, Int64, String, String, Object>> Vertex;
-                                             
+        protected ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                             TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                             TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                             TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Vertex;
+
         /// <summary>
-        /// The edge for this http request.
+        /// The edge parameter for this http request.
         /// </summary>
-        protected ThreadLocal<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object>> Edge;
+        protected ThreadLocal<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Edge;
+
+        /// <summary>
+        /// The multiedge parameter for this http request.
+        /// </summary>
+        protected ThreadLocal<IReadOnlyGenericPropertyMultiEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> MultiEdge;
+
+        /// <summary>
+        /// The hyperedge parameter for this http request.
+        /// </summary>
+        protected ThreadLocal<IReadOnlyGenericPropertyHyperEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> HyperEdge;
+
+
 
         /// <summary>
         /// The 'Callback' parameter within the query string
@@ -90,7 +150,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// <summary>
         /// The internal GraphServer object.
         /// </summary>
-        public IBifrostHTTPServer GraphServer { get; set; }
+        public IBifrostHTTPServer<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                  TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                  TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                  TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> GraphServer { get; set; }
 
         #endregion
 
@@ -141,20 +204,20 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentType, "GraphServer.resources.")
         {
 
-            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object>>();
+            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object>>();
+            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object>>();
+            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
             this.Callback = new ThreadLocal<String>();
             this.Skip     = new ThreadLocal<UInt64>();
@@ -175,23 +238,24 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentTypes, "GraphServer.resources.")
         {
 
-            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Skip   = new ThreadLocal<UInt64>();
-            this.Take   = new ThreadLocal<UInt64>();
+            this.Callback = new ThreadLocal<String>();
+            this.Skip     = new ThreadLocal<UInt64>();
+            this.Take     = new ThreadLocal<UInt64>();
 
         }
 
@@ -209,23 +273,24 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentType, ResourcePath)
         {
 
-            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Skip   = new ThreadLocal<UInt64>();
-            this.Take   = new ThreadLocal<UInt64>();
+            this.Callback = new ThreadLocal<String>();
+            this.Skip     = new ThreadLocal<UInt64>();
+            this.Take     = new ThreadLocal<UInt64>();
 
         }
 
@@ -243,23 +308,24 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             : base(IHTTPConnection, HTTPContentTypes, ResourcePath)
         {
 
-            this.Graph  = new ThreadLocal<IReadOnlyGenericPropertyGraph <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Vertex = new ThreadLocal<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Edge   = new ThreadLocal<IReadOnlyGenericPropertyEdge  <String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object,
-                                                                         String, Int64, String, String, Object>>();
+            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
 
-            this.Skip   = new ThreadLocal<UInt64>();
-            this.Take   = new ThreadLocal<UInt64>();
+            this.Callback = new ThreadLocal<String>();
+            this.Skip     = new ThreadLocal<UInt64>();
+            this.Take     = new ThreadLocal<UInt64>();
 
         }
 
@@ -268,21 +334,21 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         #endregion
 
 
-        #region (protected) ParseGraphId(GraphId)
+        #region (protected) ParseAndCheckGraphId(GraphId)
 
         /// <summary>
-        /// Parse and check the parameter GraphId.
+        /// Parse and check the HTTP parameter GraphId.
         /// </summary>
         /// <param name="GraphId"></param>
-        protected void ParseGraphId(String GraphId)
+        protected void ParseAndCheckGraphId(String GraphId)
         {
 
-            IGenericPropertyGraph<String, Int64, String, String, Object,
-                                  String, Int64, String, String, Object,
-                                  String, Int64, String, String, Object,
-                                  String, Int64, String, String, Object> _Graph = null;
+            IGenericPropertyGraph<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                  TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                  TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                  TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> _Graph = null;
 
-            if (!GraphServer.TryGetGraph(GraphId, out _Graph))
+            if (!GraphServer.TryGetGraph(VertexIdParser(GraphId), out _Graph))
 
                 HTTPErrorResponse = new ThreadLocal<HTTPResponse>(
                     () => new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotFound, "The given 'GraphId' is unknown!").Error);
@@ -294,21 +360,21 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
         #endregion
 
-        #region (protected) ParseVertexId(VertexId)
+        #region (protected) ParseAndCheckVertexId(VertexId)
 
         /// <summary>
-        /// Parse and check the parameter VertexId.
+        /// Parse and check the HTTP parameter VertexId.
         /// </summary>
         /// <param name="VertexId"></param>
-        protected void ParseVertexId(String VertexId)
+        protected void ParseAndCheckVertexId(String VertexId)
         {
 
-            IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                           String, Int64, String, String, Object,
-                                           String, Int64, String, String, Object,
-                                           String, Int64, String, String, Object> _Vertex = null;
+            IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> _Vertex = null;
 
-            if (!Graph.Value.TryGetVertexById(VertexId, out _Vertex))
+            if (!Graph.Value.TryGetVertexById(VertexIdParser(VertexId), out _Vertex))
 
                 HTTPErrorResponse = new ThreadLocal<HTTPResponse>(
                     () => new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotFound, "The given 'VertexId' is unknown!").Error);
@@ -326,21 +392,73 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Parse and check the parameter EdgeId.
         /// </summary>
         /// <param name="EdgeId"></param>
-        protected void ParseEdgeId(String EdgeId)
+        protected void ParseAndCheckEdgeId(String EdgeId)
         {
 
-            IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                         String, Int64, String, String, Object,
-                                         String, Int64, String, String, Object,
-                                         String, Int64, String, String, Object> _Edge = null;
+            IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                         TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                         TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                         TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> _Edge = null;
 
-            if (!Graph.Value.TryGetEdgeById(EdgeId, out _Edge))
+            if (!Graph.Value.TryGetEdgeById(EdgeIdParser(EdgeId), out _Edge))
 
                 HTTPErrorResponse = new ThreadLocal<HTTPResponse>(
                     () => new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotFound, "The given 'EdgeId' is unknown!").Error);
 
             else
                 Edge.Value = _Edge;
+
+        }
+
+        #endregion
+
+        #region (protected) ParseMultiEdgeId(MultiEdgeId)
+
+        /// <summary>
+        /// Parse and check the parameter MultiEdgeId.
+        /// </summary>
+        /// <param name="MultiEdgeId"></param>
+        protected void ParseAndCheckMultiEdgeId(String MultiEdgeId)
+        {
+
+            IReadOnlyGenericPropertyMultiEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                              TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                              TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                              TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> _MultiEdge = null;
+
+            if (!Graph.Value.TryGetMultiEdgeById(MultiEdgeIdParser(MultiEdgeId), out _MultiEdge))
+
+                HTTPErrorResponse = new ThreadLocal<HTTPResponse>(
+                    () => new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotFound, "The given 'MultiEdgeId' is unknown!").Error);
+
+            else
+                MultiEdge.Value = _MultiEdge;
+
+        }
+
+        #endregion
+
+        #region (protected) ParseHyperEdgeId(EdgeId)
+
+        /// <summary>
+        /// Parse and check the parameter HyperEdgeId.
+        /// </summary>
+        /// <param name="HyperEdgeId"></param>
+        protected void ParseAndCheckHyperEdgeId(String HyperEdgeId)
+        {
+
+            IReadOnlyGenericPropertyHyperEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                              TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                              TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                              TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> _HyperEdge = null;
+
+            if (!Graph.Value.TryGetHyperEdgeById(HyperEdgeIdParser(HyperEdgeId), out _HyperEdge))
+
+                HTTPErrorResponse = new ThreadLocal<HTTPResponse>(
+                    () => new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotFound, "The given 'HyperEdgeId' is unknown!").Error);
+
+            else
+                HyperEdge.Value = _HyperEdge;
 
         }
 
@@ -397,10 +515,6 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         }
 
         #endregion
-
-
-
-
 
 
 
@@ -501,21 +615,21 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Return general information of a graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object,
-                                                           String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyGraph<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>
 
             GET_GraphById_protected(String GraphId)
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
 
-            return new HTTPResult<IReadOnlyGenericPropertyGraph<String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object,
-                                                                String, Int64, String, String, Object>>(Graph.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyGraph<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>(Graph.Value);
 
         }
 
@@ -567,22 +681,22 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             return new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotAcceptable).Error;
         }
 
-        protected HTTPResult<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object,
-                                                            String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                            TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                            TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                            TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>
 
             GET_VertexById_protected(String GraphId, String VertexId)
 
         {
 
-            ParseGraphId(GraphId);
-            ParseVertexId(VertexId);
+            ParseAndCheckGraphId(GraphId);
+            ParseAndCheckVertexId(VertexId);
 
-            return new HTTPResult<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object,
-                                                                 String, Int64, String, String, Object>>(Vertex.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                 TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                 TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                 TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>(Vertex.Value);
 
         }
 
@@ -659,16 +773,16 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Return all vertices of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                        TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                        TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                        TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>
 
             GET_Vertices_protected(String GraphId)
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
             ParseTakeParameter();
 
@@ -681,10 +795,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Vertices = _Vertices.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>>(_Vertices);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                             TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                             TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                             TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>(_Vertices);
 
         }
 
@@ -705,16 +819,16 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Return all vertices of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object,
-                                                                        String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                        TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                        TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                        TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>
 
             FILTER_Vertices_protected(String GraphId)
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
             ParseTakeParameter();
 
@@ -727,10 +841,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Vertices = _Vertices.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object,
-                                                                             String, Int64, String, String, Object>>>(_Vertices);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                             TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                             TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                             TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>(_Vertices);
 
         }
 
@@ -757,7 +871,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
 
             return new HTTPResult<UInt64>(Graph.Value.NumberOfVertices());
 
@@ -788,21 +902,22 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             return new HTTPResult<Object>(IHTTPConnection.RequestHeader, HTTPStatusCode.NotAcceptable).Error;
         }
 
-        protected HTTPResult<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                          String, Int64, String, String, Object,
-                                                          String, Int64, String, String, Object,
-                                                          String, Int64, String, String, Object>>
+        protected HTTPResult<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                          TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                          TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                          TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>
 
             GET_EdgeById_protected(String GraphId, String EdgeId)
+
         {
 
-            ParseGraphId(GraphId);
-            ParseEdgeId(EdgeId);
+            ParseAndCheckGraphId(GraphId);
+            ParseAndCheckEdgeId(EdgeId);
 
-            return new HTTPResult<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                               String, Int64, String, String, Object,
-                                                               String, Int64, String, String, Object,
-                                                               String, Int64, String, String, Object>>(Edge.Value);
+            return new HTTPResult<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                               TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                               TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                               TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>(Edge.Value);
 
         }
 
@@ -823,16 +938,16 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Return all edges of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                      TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                      TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                      TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>
 
             GET_Edges_protected(String GraphId)
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
             ParseTakeParameter();
 
@@ -845,10 +960,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Edges = _Edges.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object>>>(_Edges);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>(_Edges);
 
         }
 
@@ -869,16 +984,16 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// Return all edges of the given graph.
         /// </summary>
         /// <param name="GraphId">The unique identification of the graph.</param>
-        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object,
-                                                                      String, Int64, String, String, Object>>>
+        protected HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                      TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                      TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                      TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>
 
             FILTER_Edges_protected(String GraphId)
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
             ParseTakeParameter();
 
@@ -891,10 +1006,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             if (Take.Value != 0)
                 _Edges = _Edges.Take(Take.Value);
 
-            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object,
-                                                                           String, Int64, String, String, Object>>>(_Edges);
+            return new HTTPResult<IEnumerable<IReadOnlyGenericPropertyEdge<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>>(_Edges);
 
         }
 
@@ -921,7 +1036,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
         {
 
-            ParseGraphId(GraphId);
+            ParseAndCheckGraphId(GraphId);
 
             return new HTTPResult<UInt64>(Graph.Value.NumberOfEdges());
 
@@ -951,10 +1066,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// </summary>
         /// <param name="Vertex">A single vertex.</param>
         /// <returns>The serialized vertex.</returns>
-        protected virtual Byte[] VertexSerialization(IGenericPropertyVertex<UInt64, Int64, String, String, Object,
-                                                                            UInt64, Int64, String, String, Object,
-                                                                            UInt64, Int64, String, String, Object,
-                                                                            UInt64, Int64, String, String, Object> Vertex)
+        protected virtual Byte[] VertexSerialization(IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                            TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                            TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                            TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> Vertex)
         {
             return null;
         }
@@ -968,10 +1083,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// </summary>
         /// <param name="Vertices">An enumeration of vertices.</param>
         /// <returns>The serialized vertex.</returns>
-        protected virtual Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<UInt64, Int64, String, String, Object,
-                                                                                          UInt64, Int64, String, String, Object,
-                                                                                          UInt64, Int64, String, String, Object,
-                                                                                          UInt64, Int64, String, String, Object>> Vertices)
+        protected virtual Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                                          TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                                          TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                                          TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Vertices)
         {
             return null;
         }

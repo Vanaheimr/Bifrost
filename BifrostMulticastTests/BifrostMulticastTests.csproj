@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3327427D-AFA0-4E8D-8136-424C4AC4C16D}</ProjectGuid>
+    <ProjectGuid>{4D844564-1B7F-4565-B03B-F45D1ABDCF5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BifrostTests</RootNamespace>
-    <AssemblyName>BifrostTests</AssemblyName>
+    <RootNamespace>eu.Vanaheimr.Bifrost.BifrostMulticastTests</RootNamespace>
+    <AssemblyName>BifrostMulticastTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Illias\libs\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -43,67 +44,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BifrostHTTPServer\HTTPInferface.cs" />
-    <Compile Include="BifrostHTTPServer\GraphServerInitializationTests.cs" />
-    <Compile Include="BifrostHTTPServer\InitHTTPGraph.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Balder\BalderTests\BalderTests.csproj">
+      <Project>{4bf95036-986a-47ee-b48e-cf8c2b0e7841}</Project>
+      <Name>BalderTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Balder\Balder\Balder.csproj">
-      <Project>{D2B4E7C7-0524-4DE5-9D62-2DE05682A74D}</Project>
+      <Project>{d2b4e7c7-0524-4de5-9d62-2de05682a74d}</Project>
       <Name>Balder</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Balder\PropertyGraphs\PropertyGraphs.csproj">
-      <Project>{562AC94F-60EA-4911-8C62-684F02867783}</Project>
+      <Project>{562ac94f-60ea-4911-8c62-684f02867783}</Project>
       <Name>PropertyGraphs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BifrostHTTPClient\BifrostHTTPClient.csproj">
-      <Project>{EB31E37B-FA75-44FD-9528-171C9E7C3C37}</Project>
-      <Name>BifrostHTTPClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BifrostHTTPServer\BifrostHTTPServer.csproj">
-      <Project>{DC46B5EF-ECC5-465E-B1C4-85596343A03F}</Project>
-      <Name>BifrostHTTPServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bifrost\Bifrost.csproj">
-      <Project>{F6FA73F9-14B4-4033-AAFE-9BFA66BD98F5}</Project>
-      <Name>Bifrost</Name>
+    <ProjectReference Include="..\..\Eunomia\Eunomia\Eunomia.csproj">
+      <Project>{1df1a588-33b1-4168-9487-604fe5680681}</Project>
+      <Name>Eunomia</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodHTTPClient\HermodHTTPClient.csproj">
-      <Project>{0AB343E8-AA69-4685-9676-BFA27E418A20}</Project>
+      <Project>{0ab343e8-aa69-4685-9676-bfa27e418a20}</Project>
       <Name>HermodHTTPClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodHTTPServer\HermodHTTPServer.csproj">
-      <Project>{9CE48DAC-0512-4947-942B-EF4C42C52B47}</Project>
+      <Project>{9ce48dac-0512-4947-942b-ef4c42c52b47}</Project>
       <Name>HermodHTTPServer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodHTTP\HermodHTTP.csproj">
-      <Project>{9A00BD39-1385-4DB4-8F38-363BB947CCB4}</Project>
+      <Project>{9a00bd39-1385-4db4-8f38-363bb947ccb4}</Project>
       <Name>HermodHTTP</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\HermodTests\HermodTests.csproj">
-      <Project>{8F1ABEE3-CFF0-47D6-A872-25112A74CCDA}</Project>
+      <Project>{8f1abee3-cff0-47d6-a872-25112a74ccda}</Project>
       <Name>HermodTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Hermod\Hermod\Hermod.csproj">
-      <Project>{477EFD16-3627-4473-957D-44CA9A9DFB79}</Project>
+      <Project>{477efd16-3627-4473-957d-44ca9a9dfb79}</Project>
       <Name>Hermod</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Illias\CommonsTests\CommonsTests.csproj">
-      <Project>{02A5F706-A9AC-46BE-A428-EA6F990D8E21}</Project>
+      <Project>{02a5f706-a9ac-46be-a428-ea6f990d8e21}</Project>
       <Name>CommonsTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Illias\Commons\Commons.csproj">
-      <Project>{16C85DF8-5DE6-4A9F-9FC7-7CA5B0440DF3}</Project>
+      <Project>{16c85df8-5de6-4a9f-9fc7-7ca5b0440df3}</Project>
       <Name>Commons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Styx\StyxTests\StyxTests.csproj">
-      <Project>{6F2452F5-BF16-4577-9C5A-85C8D7B5289D}</Project>
-      <Name>StyxTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Styx\Styx\Styx.csproj">
-      <Project>{3949790D-8591-4101-9E4D-CE7A758E7409}</Project>
+      <Project>{3949790d-8591-4101-9e4d-ce7a758e7409}</Project>
       <Name>Styx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BifrostHTTPClient\BifrostHTTPClient.csproj">
+      <Project>{eb31e37b-fa75-44fd-9528-171c9e7c3c37}</Project>
+      <Name>BifrostHTTPClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BifrostHTTPServer\BifrostHTTPServer.csproj">
+      <Project>{dc46b5ef-ecc5-465e-b1c4-85596343a03f}</Project>
+      <Name>BifrostHTTPServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bifrost\Bifrost.csproj">
+      <Project>{f6fa73f9-14b4-4033-aafe-9bfa66bd98f5}</Project>
+      <Name>Bifrost</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

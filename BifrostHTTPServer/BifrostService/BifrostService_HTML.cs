@@ -36,7 +36,37 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
     /// <summary>
     /// HTML content representation.
     /// </summary>
-    public class BifrostService_HTML : ABifrostService
+    public class BifrostService_HTML<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                     TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                     TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                     TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+
+                                     : ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                       TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                       TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                       TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+
+
+        where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
+        where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
+        where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
+        where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
+
+        where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
+        where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
+        where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
+        where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
+
+        where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
+        where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
+        where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
+        where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
+
+        where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
+        where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
+        where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
+        where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
+
     {
 
         #region Constructor(s)
@@ -109,7 +139,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         public override HTTPResponse GET_Graphs()
         {
 
-            var AllGraphs = GraphServer.Select(graph => "<a href=\"/graph/" + graph.Id + "\">" + graph.Id + " - " + graph["Description"] + "</a> " +
+            var AllGraphs = GraphServer.Select(graph => "<a href=\"/graph/" + graph.Id + "\">" + graph.Id + " - " + graph[VertexPropertyKeyParser("Description")] + "</a> " +
                                                         "<a href=\"/graph/" + graph.Id + "/vertices\">[All Vertices]</a> " +
                                                         "<a href=\"/graph/" + graph.Id + "/edges\">[All Edge]</a>").
                                         Aggregate((a, b) => a + "<br>" + b);
@@ -170,21 +200,21 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
                 StringBuilder.Append("<table>");
 
-                StringBuilder.Append("<tr><td>Id</td><td>").                  Append(GraphResult.Data.Id).                  AppendLine("</td></tr>").
-                              Append("<tr><td>RevisionId</td><td>").          Append(GraphResult.Data.RevId).               AppendLine("</td></tr>").
-                              Append("<tr><td>Description</td><td>").         Append(GraphResult.Data["Description"]).      AppendLine("</td></tr>").
+                StringBuilder.Append("<tr><td>Id</td><td>").                  Append(GraphResult.Data.Id).                                     AppendLine("</td></tr>").
+                              Append("<tr><td>RevisionId</td><td>").          Append(GraphResult.Data.RevId).                                  AppendLine("</td></tr>").
+                              Append("<tr><td>Description</td><td>").         Append(GraphResult.Data[VertexPropertyKeyParser("Description")]).AppendLine("</td></tr>").
                               AppendLine("<tr><td>&nbsp;</td></tr>").
-                              Append("<tr><td>Number of vertices</td><td>").  Append(GraphResult.Data.NumberOfVertices()).  AppendLine("</td></tr>").
-                              Append("<tr><td>Number of edges</td><td>").     Append(GraphResult.Data.NumberOfEdges()).     AppendLine("</td></tr>").
-                              Append("<tr><td>Number of multiedges</td><td>").Append(GraphResult.Data.NumberOfMultiEdges()).AppendLine("</td></tr>").
-                              Append("<tr><td>Number of hyperedges</td><td>").Append(GraphResult.Data.NumberOfHyperEdges()).AppendLine("</td></tr>").
+                              Append("<tr><td>Number of vertices</td><td>").  Append(GraphResult.Data.NumberOfVertices()).                     AppendLine("</td></tr>").
+                              Append("<tr><td>Number of edges</td><td>").     Append(GraphResult.Data.NumberOfEdges()).                        AppendLine("</td></tr>").
+                              Append("<tr><td>Number of multiedges</td><td>").Append(GraphResult.Data.NumberOfMultiEdges()).                   AppendLine("</td></tr>").
+                              Append("<tr><td>Number of hyperedges</td><td>").Append(GraphResult.Data.NumberOfHyperEdges()).                   AppendLine("</td></tr>").
                               AppendLine("<tr><td>&nbsp;</td></tr>");
 
                 GraphResult.Data.ForEach(KeyValuePair =>
                     {
-                        if (KeyValuePair.Key != GraphResult.Data.IdKey &&
-                            KeyValuePair.Key != GraphResult.Data.RevIdKey &&
-                            KeyValuePair.Key != GraphResult.Data.LabelKey)
+                        if (!KeyValuePair.Key.Equals(GraphResult.Data.IdKey) &&
+                            !KeyValuePair.Key.Equals(GraphResult.Data.RevIdKey) &&
+                            !KeyValuePair.Key.Equals(GraphResult.Data.LabelKey))
                             StringBuilder.Append("<tr><td>").
                                           Append(KeyValuePair.Key.ToString()).
                                           Append("</td><td>").
@@ -413,10 +443,10 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// </summary>
         /// <param name="Vertices">An enumeration of vertices.</param>
         /// <returns>The serialized vertex.</returns>
-        protected override Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<UInt64, Int64, String, String, Object,
-                                                                                           UInt64, Int64, String, String, Object,
-                                                                                           UInt64, Int64, String, String, Object,
-                                                                                           UInt64, Int64, String, String, Object>> Vertices)
+        protected override Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+                                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+                                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+                                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Vertices)
         {
 
             return HTMLBuilder("www.graph-database.org v0.1", b =>

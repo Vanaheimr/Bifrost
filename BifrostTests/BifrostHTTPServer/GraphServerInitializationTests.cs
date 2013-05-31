@@ -47,9 +47,18 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void GraphServerConstructorTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
-                                         ServerName = "GraphServer v0.1"
-                                     } as IBifrostHTTPServer)
+            using (var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object>
+
+                                          ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init), new IPPort(8080)) {
+                                              ServerName = "GraphServer v0.1"
+                                          } as IBifrostHTTPServer<String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object>)
+
             {
 
                 GraphServer.CreateNewGraph("123");
@@ -80,9 +89,18 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void AddPropertyGraphTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
-                                         ServerName = "GraphServer v0.1"
-                                     } as IBifrostHTTPServer)
+            using (var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object>
+
+                                          ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init), new IPPort(8080)) {
+                                              ServerName = "GraphServer v0.1"
+                                          } as IBifrostHTTPServer<String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object>)
+
             {
 
                 GraphServer.CreateNewGraph("123");
@@ -113,9 +131,18 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
         public void NewPropertyGraphTest()
         {
 
-            using (var GraphServer = new BifrostHTTPServer(new IPPort(8080), (id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init)) {
-                                         ServerName = "GraphServer v0.1"
-                                     } as IBifrostHTTPServer)
+            using (var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object,
+                                                           String, Int64, String, String, Object>
+
+                                          ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init), new IPPort(8080)) {
+                                              ServerName = "GraphServer v0.1"
+                                          } as IBifrostHTTPServer<String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object,
+                                                                  String, Int64, String, String, Object>)
+
             {
 
                 GraphServer.CreateNewGraph("123");

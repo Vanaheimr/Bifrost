@@ -37,11 +37,25 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
     public class InitGraphServer
     {
 
-        protected IBifrostHTTPServer CreateGraph(String GraphId)
+        protected IBifrostHTTPServer<String, Int64, String, String, Object,
+                                     String, Int64, String, String, Object,
+                                     String, Int64, String, String, Object,
+                                     String, Int64, String, String, Object>
+
+            CreateGraph(String GraphId)
+
         {
-            var GraphServer = new BifrostHTTPServer((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init));
+
+            var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object,
+                                                    String, Int64, String, String, Object>
+
+                                     ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init));
+
             GraphServer.CreateNewGraph(GraphId);
             return GraphServer;
+
         }
 
     }
