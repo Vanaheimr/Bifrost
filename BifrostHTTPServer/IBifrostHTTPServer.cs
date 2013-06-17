@@ -113,7 +113,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
         /// <summary>
         /// Return the graph identified by the given GraphId.
-        /// If the graph does not exist rturn null.
+        /// If the graph does not exist return null.
         /// </summary>
         /// <param name="GraphId">The unique identifier of the graph to return.</param>
         IGenericPropertyGraph<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,

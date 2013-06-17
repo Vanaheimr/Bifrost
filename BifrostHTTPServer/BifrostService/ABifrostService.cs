@@ -465,57 +465,6 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         #endregion
 
 
-        #region (protected) ParseCallbackParameter()
-
-        /// <summary>
-        /// Parse and check the parameter CALLBACK.
-        /// </summary>
-        protected void ParseCallbackParameter()
-        {
-
-            String _Callback;
-
-            if (TryGetParameter_String(Tokens.CALLBACK, out _Callback))
-                Callback.Value = new Regex("[^a-zA-Z0-9_]").Replace(_Callback, "");
-
-        }
-
-        #endregion
-
-        #region (protected) ParseSkipParameter()
-
-        /// <summary>
-        /// Parse and check the parameter SKIP.
-        /// </summary>
-        protected void ParseSkipParameter()
-        {
-
-            UInt64 _Skip;
-
-            if (TryGetParameter_UInt64(Tokens.SKIP, out _Skip))
-                Skip.Value = _Skip;
-
-        }
-
-        #endregion
-
-        #region (protected) ParseTakeParameter()
-
-        /// <summary>
-        /// Parse and check the parameter TAKE.
-        /// </summary>
-        protected void ParseTakeParameter()
-        {
-
-            UInt64 _Take;
-
-            if (TryGetParameter_UInt64(Tokens.TAKE, out _Take))
-                Take.Value = _Take;
-
-        }
-
-        #endregion
-
 
 
         #region GET_Root()
