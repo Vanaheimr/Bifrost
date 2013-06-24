@@ -294,7 +294,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Client
                                             SetConnection("keep-alive").
                                             AddAccept(_HTTPContentType, 1);
 
-            return HTTPClient.Execute(_Request, response => { if (Action != null) Action(response.Content.ToUTF8String()); } );
+            return HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.Content.ToUTF8String()); });
 
         }
 

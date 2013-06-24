@@ -733,7 +733,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
             ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
-            ParseTakeParameter();
+            ParseTakeParameter(25);
 
             // Return the appropriate enumeration
             var _Vertices = Graph.Value.Vertices();
@@ -779,7 +779,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
             ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
-            ParseTakeParameter();
+            ParseTakeParameter(25);
 
             // Return the appropriate enumeration
             var _Vertices = Graph.Value.Vertices();
@@ -898,7 +898,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
             ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
-            ParseTakeParameter();
+            ParseTakeParameter(25);
 
             // Return the appropriate enumeration
             var _Edges = Graph.Value.Edges();
@@ -944,7 +944,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
 
             ParseAndCheckGraphId(GraphId);
             ParseSkipParameter();
-            ParseTakeParameter();
+            ParseTakeParameter(25);
 
             // Return the appropriate enumeration
             var _Edges = Graph.Value.Edges();
