@@ -201,7 +201,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IHTTPConnection">The http connection for this request.</param>
         /// <param name="HTTPContentType">A http content type.</param>
         public ABifrostService(IHTTPConnection IHTTPConnection, HTTPContentType HTTPContentType)
-            : base(IHTTPConnection, HTTPContentType, "GraphServer.resources.")
+            : base(IHTTPConnection, HTTPContentType)
         {
 
             this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
@@ -235,77 +235,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IHTTPConnection">The http connection for this request.</param>
         /// <param name="HTTPContentTypes">An enumeration of content types.</param>
         public ABifrostService(IHTTPConnection IHTTPConnection, IEnumerable<HTTPContentType> HTTPContentTypes)
-            : base(IHTTPConnection, HTTPContentTypes, "GraphServer.resources.")
-        {
-
-            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Callback = new ThreadLocal<String>();
-            this.Skip     = new ThreadLocal<UInt64>();
-            this.Take     = new ThreadLocal<UInt64>();
-
-        }
-
-        #endregion
-
-        #region (protected) ABifrostService(IHTTPConnection, HTTPContentType, ResourcePath)
-
-        /// <summary>
-        /// Creates a new abstract graph service.
-        /// </summary>
-        /// <param name="IHTTPConnection">The http connection for this request.</param>
-        /// <param name="HTTPContentType">A http content type.</param>
-        /// <param name="ResourcePath">The path to internal resources.</param>
-        protected ABifrostService(IHTTPConnection IHTTPConnection, HTTPContentType HTTPContentType, String ResourcePath)
-            : base(IHTTPConnection, HTTPContentType, ResourcePath)
-        {
-
-            this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Vertex   = new ThreadLocal<IReadOnlyGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Edge     = new ThreadLocal<IReadOnlyGenericPropertyEdge  <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>>();
-
-            this.Callback = new ThreadLocal<String>();
-            this.Skip     = new ThreadLocal<UInt64>();
-            this.Take     = new ThreadLocal<UInt64>();
-
-        }
-
-        #endregion
-
-        #region (protected) ABifrostService(IHTTPConnection, HTTPContentTypes, ResourcePath)
-
-        /// <summary>
-        /// Creates a new abstract graph service.
-        /// </summary>
-        /// <param name="IHTTPConnection">The http connection for this request.</param>
-        /// <param name="HTTPContentTypes">An enumeration of http content types.</param>
-        /// <param name="ResourcePath">The path to internal resources.</param>
-        protected ABifrostService(IHTTPConnection IHTTPConnection, IEnumerable<HTTPContentType> HTTPContentTypes, String ResourcePath)
-            : base(IHTTPConnection, HTTPContentTypes, ResourcePath)
+            : base(IHTTPConnection, HTTPContentTypes)
         {
 
             this.Graph    = new ThreadLocal<IReadOnlyGenericPropertyGraph <TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,

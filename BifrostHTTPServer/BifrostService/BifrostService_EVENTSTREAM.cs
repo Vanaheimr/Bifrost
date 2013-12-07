@@ -87,9 +87,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IHTTPConnection">The http connection for this request.</param>
         public BifrostService_EVENTSTREAM(IHTTPConnection IHTTPConnection)
             : base(IHTTPConnection, HTTPContentType.EVENTSTREAM)
-        {
-            this.CallingAssembly = Assembly.GetExecutingAssembly();
-        }
+        { }
 
         #endregion
 

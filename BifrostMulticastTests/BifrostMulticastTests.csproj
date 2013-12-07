@@ -56,7 +56,7 @@
       <Project>{d2b4e7c7-0524-4de5-9d62-2de05682a74d}</Project>
       <Name>Balder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Balder\PropertyGraphs\PropertyGraphs.csproj">
+    <ProjectReference Include="..\..\Balder\BalderGraphs\BalderGraphs.csproj">
       <Project>{562ac94f-60ea-4911-8c62-684f02867783}</Project>
       <Name>PropertyGraphs</Name>
     </ProjectReference>

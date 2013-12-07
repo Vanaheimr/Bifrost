@@ -91,9 +91,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         /// <param name="IHTTPConnection">The http connection for this request.</param>
         public BifrostService_JSON(IHTTPConnection IHTTPConnection)
             : base(IHTTPConnection, HTTPContentType.JSON_UTF8)
-        {
-            this.CallingAssembly = Assembly.GetExecutingAssembly();
-        }
+        { }
 
         #endregion
 

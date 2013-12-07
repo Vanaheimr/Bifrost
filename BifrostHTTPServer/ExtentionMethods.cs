@@ -19,8 +19,8 @@
 
 using System;
 
-using eu.Vanaheimr.Hermod.Datastructures;
 using eu.Vanaheimr.Balder;
+using eu.Vanaheimr.Hermod;
 
 #endregion
 
