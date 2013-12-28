@@ -20,9 +20,9 @@
 using System;
 
 using eu.Vanaheimr.Balder;
-using eu.Vanaheimr.Styx;
 using eu.Vanaheimr.Hermod.Multicast;
-using eu.Vanaheimr.Hermod.Datastructures;
+using eu.Vanaheimr.Styx.Arrows;
+using eu.Vanaheimr.Hermod;
 
 #endregion
 
@@ -96,60 +96,6 @@ namespace eu.Vanaheimr.Bifrost.Multicast
         #endregion
 
         #region Constructor(s)
-
-        #region MulticastVertexSender(MessageRecipients.Recipient, params MessageRecipients.Recipients)
-
-        /// <summary>
-        /// Creates a new AbstractArrow and adds the given recipients
-        /// to the list of message recipients.
-        /// </summary>
-        /// <param name="Recipient">A recipient of the processed messages.</param>
-        /// <param name="Recipients">The recipients of the processed messages.</param>
-        public MulticastVertexSender(MessageRecipient<String> Recipient, params MessageRecipient<String>[] Recipients)
-        {
-            lock (this)
-            {
-                
-                if (Recipient != null)
-                    this.OnMessageAvailable += Recipient;
-
-                if (Recipients != null)
-                {
-                    foreach (var _Recipient in Recipients)
-                        this.OnMessageAvailable += _Recipient;
-                }
-
-            }
-        }
-
-        #endregion
-
-        #region MulticastVertexSender(IArrowReceiver.Recipient, params IArrowReceiver.Recipients)
-
-        /// <summary>
-        /// Creates a new AbstractArrow and adds the given recipients
-        /// to the list of message recipients.
-        /// </summary>
-        /// <param name="Recipient">A recipient of the processed messages.</param>
-        /// <param name="Recipients">The recipients of the processed messages.</param>
-        public MulticastVertexSender(IArrowReceiver<String> Recipient, params IArrowReceiver<String>[] Recipients)
-        {
-            lock (this)
-            {
-
-                if (Recipient != null)
-                    this.OnMessageAvailable += Recipient.ReceiveMessage;
-
-                if (Recipients != null)
-                {
-                    foreach (var _Recipient in Recipients)
-                        this.OnMessageAvailable += _Recipient.ReceiveMessage;
-                }
-
-            }
-        }
-
-        #endregion
 
         #region MulticastVertexSender(MulticastAddress, IPPort, HopCount = 255)
 
