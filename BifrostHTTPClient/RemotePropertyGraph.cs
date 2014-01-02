@@ -932,6 +932,22 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Client
         {
             get { throw new NotImplementedException(); }
         }
+
+
+        public TKeyVertex VertexIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyVertex VertexRevIdKey
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public TKeyVertex VertexLabelKey
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
 }
