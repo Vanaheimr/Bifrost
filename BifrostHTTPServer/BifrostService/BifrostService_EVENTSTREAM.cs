@@ -105,7 +105,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             var _RequestHeader      = IHTTPConnection.RequestHeader;
             var _LastEventId        = 0UL;
             var _Client_LastEventId = 0UL;
-            var _EventSource        = IHTTPConnection.URLMapping.EventSource("GraphEvents");
+            var _EventSource        = IHTTPConnection.HTTPServer.GetEventSource("GraphEvents");
 
             if (_RequestHeader.TryGet<UInt64>("Last-Event-Id", out _Client_LastEventId))
                 _LastEventId = _Client_LastEventId + 1;
@@ -126,15 +126,14 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
             var _ResourceContent2 = _ResourceContent.Select(e => e.ToString()).Aggregate((a, b) => { return a + Environment.NewLine + b; });
             var _ResourceContent3 = _ResourceContent2.ToUTF8Bytes();
 
-            return new HTTPResponseBuilder()
-                        {
-                            HTTPStatusCode = HTTPStatusCode.OK,
-                            ContentType    = HTTPContentType.EVENTSTREAM,
-                            ContentLength  = (UInt64) _ResourceContent3.Length,
-                            CacheControl   = "no-cache",
-                            Connection     = "keep-alive",
-                            Content        = _ResourceContent3
-                        };
+            return new HTTPResponseBuilder() {
+                           HTTPStatusCode  = HTTPStatusCode.OK,
+                           ContentType     = HTTPContentType.EVENTSTREAM,
+                           ContentLength   = (UInt64) _ResourceContent3.Length,
+                           CacheControl    = "no-cache",
+                           Connection      = "keep-alive",
+                           Content         = _ResourceContent3
+                       };
 
         }
 
