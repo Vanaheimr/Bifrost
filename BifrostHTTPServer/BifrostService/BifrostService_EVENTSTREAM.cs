@@ -102,37 +102,37 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Server
         public override HTTPResponse GetEvents()
         {
 
-            var _RequestHeader      = IHTTPConnection.RequestHeader;
-            var _LastEventId        = 0UL;
-            var _Client_LastEventId = 0UL;
-            var _EventSource        = IHTTPConnection.HTTPServer.GetEventSource("GraphEvents");
+            //var _RequestHeader       = IHTTPConnection.RequestHeader;
+            //var _LastEventId         = 0UL;
+            //var _Client_LastEventId  = 0UL;
+            //var _EventSource         = GraphServer.get .Internal.GetEventSource("GraphEvents");
 
-            if (_RequestHeader.TryGet<UInt64>("Last-Event-Id", out _Client_LastEventId))
-                _LastEventId = _Client_LastEventId + 1;
+            //if (_RequestHeader.TryGet<UInt64>("Last-Event-Id", out _Client_LastEventId))
+            //    _LastEventId = _Client_LastEventId + 1;
 
-            var _Random = new Random();
-            _EventSource.SubmitSubEvent("vertexadded", "{\"radius\": " + _Random.Next(5, 50) + ", \"x\": " + _Random.Next(50, 550) + ", \"y\": " + _Random.Next(50, 350) + "}");
+            //var _Random = new Random();
+            //_EventSource.SubmitSubEvent("vertexadded", "{\"radius\": " + _Random.Next(5, 50) + ", \"x\": " + _Random.Next(50, 550) + ", \"y\": " + _Random.Next(50, 350) + "}");
 
-            //var _ResourceContent = new StringBuilder();
-            //_ResourceContent.AppendLine("event:vertexadded");
-            //_ResourceContent.AppendLine("id: " + _LastEventId);
-            //_ResourceContent.Append("data: ");
-            //_ResourceContent.Append("{\"radius\": " + _Random.Next(5, 50));
-            //_ResourceContent.Append(", \"x\": "     + _Random.Next(50, 550));
-            //_ResourceContent.Append(", \"y\": "     + _Random.Next(50, 350) + "}");
-            //_ResourceContent.AppendLine().AppendLine();
+            ////var _ResourceContent = new StringBuilder();
+            ////_ResourceContent.AppendLine("event:vertexadded");
+            ////_ResourceContent.AppendLine("id: " + _LastEventId);
+            ////_ResourceContent.Append("data: ");
+            ////_ResourceContent.Append("{\"radius\": " + _Random.Next(5, 50));
+            ////_ResourceContent.Append(", \"x\": "     + _Random.Next(50, 550));
+            ////_ResourceContent.Append(", \"y\": "     + _Random.Next(50, 350) + "}");
+            ////_ResourceContent.AppendLine().AppendLine();
 
-            var _ResourceContent = _EventSource.GetEvents(_Client_LastEventId);
-            var _ResourceContent2 = _ResourceContent.Select(e => e.ToString()).Aggregate((a, b) => { return a + Environment.NewLine + b; });
-            var _ResourceContent3 = _ResourceContent2.ToUTF8Bytes();
+            //var _ResourceContent = _EventSource.GetEvents(_Client_LastEventId);
+            //var _ResourceContent2 = _ResourceContent.Select(e => e.ToString()).Aggregate((a, b) => { return a + Environment.NewLine + b; });
+            //var _ResourceContent3 = _ResourceContent2.ToUTF8Bytes();
 
             return new HTTPResponseBuilder() {
                            HTTPStatusCode  = HTTPStatusCode.OK,
-                           ContentType     = HTTPContentType.EVENTSTREAM,
-                           ContentLength   = (UInt64) _ResourceContent3.Length,
+                           //ContentType     = HTTPContentType.EVENTSTREAM,
+                           //ContentLength   = (UInt64) _ResourceContent3.Length,
                            CacheControl    = "no-cache",
                            Connection      = "keep-alive",
-                           Content         = _ResourceContent3
+                           //Content         = _ResourceContent3
                        };
 
         }
