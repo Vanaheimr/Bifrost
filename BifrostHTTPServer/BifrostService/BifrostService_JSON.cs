@@ -34,186 +34,186 @@ using Newtonsoft.Json.Linq;
 namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
-    /// <summary>
-    /// JSON content representation.
-    /// </summary>
-    public class BifrostService_JSON<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                     TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                     TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                     TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+    ///// <summary>
+    ///// JSON content representation.
+    ///// </summary>
+    //public class BifrostService_JSON<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                 TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                 TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                 TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
 
-                                     : ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                       TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                       TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                       TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
-
-
-        where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
-        where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
-        where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
-        where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
-
-        where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
-        where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
-        where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
-        where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
-
-        where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
-        where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
-        where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
-        where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
-
-        where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
-        where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
-        where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
-        where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
-
-    {
-
-        #region Constructor(s)
-
-        #region BifrostService_JSON()
-
-        /// <summary>
-        /// JSON content representation.
-        /// </summary>
-        public BifrostService_JSON()
-            : base(HTTPContentType.JSON_UTF8)
-        { }
-
-        #endregion
-
-        #region BifrostService_JSON(IHTTPConnection)
-
-        /// <summary>
-        /// JSON content representation.
-        /// </summary>
-        /// <param name="IHTTPConnection">The http connection for this request.</param>
-        public BifrostService_JSON(IHTTPConnection IHTTPConnection)
-            : base(IHTTPConnection, HTTPContentType.JSON_UTF8)
-        { }
-
-        #endregion
-
-        #endregion
+    //                                 : ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                                   TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                                   TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                                   TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
 
 
-        #region GET_Graphs()
+    //    where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
+    //    where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
+    //    where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
+    //    where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
 
-        /// <summary>
-        /// Return an overview of all graphs.
-        /// </summary>
-        public override HTTPResponse GET_Graphs()
-        {
+    //    where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
+    //    where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
+    //    where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
+    //    where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
 
-            var _Content = new JObject(
-                                   new JProperty("AllGraphs",
-                                       new JObject(
-                                           from Graph in GraphServer select new JProperty(Graph.Id.ToString(), Graph[VertexPropertyKeyParser("Description")])
-                                       )
-                                   )
-                               ).ToString();
+    //    where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
+    //    where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
+    //    where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
+    //    where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
 
-            return new HTTPResponseBuilder()
-            {
-                HTTPStatusCode = HTTPStatusCode.OK,
-                ContentType    = this.HTTPContentTypes.First(),
-                Content        = _Content.ToUTF8Bytes()
-            };
+    //    where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
+    //    where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
+    //    where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
+    //    where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
 
-        }
+    //{
 
-        /// <summary>
-        /// Get a list of all graphs.
-        /// </summary>
-        //  COUNT /graphs
-        //  "HTTPBody: {",
-        //     "\"GraphFilter\" : \"...\"",
-        //     "\"SELECT\"      : [ \"Name\", \"Age\" ],",
-        //  "}",
-        public override HTTPResponse COUNT_Graphs()
-        {
+    //    #region Constructor(s)
 
-            var Result = base.COUNT_Graphs_protected();
+    //    #region BifrostService_JSON()
 
-            if (Result.HasErrors)
-                return Result.Error;
+    //    /// <summary>
+    //    /// JSON content representation.
+    //    /// </summary>
+    //    public BifrostService_JSON()
+    //        : base(HTTPContentType.JSON_UTF8)
+    //    { }
 
-            ParseCallbackParameter();
+    //    #endregion
 
-            return new HTTPResponseBuilder()
-            {
-                HTTPStatusCode = HTTPStatusCode.OK,
-                ContentType    = this.HTTPContentTypes.First(),
-                Content        = ((Callback.IsValueCreated) ? Callback.Value + "([ " + Result.Data + " ])" : "[ " + Result.Data + " ]").ToUTF8Bytes()
-            };
+    //    #region BifrostService_JSON(IHTTPConnection)
 
-        }
+    //    /// <summary>
+    //    /// JSON content representation.
+    //    /// </summary>
+    //    /// <param name="IHTTPConnection">The http connection for this request.</param>
+    //    public BifrostService_JSON(IHTTPConnection IHTTPConnection)
+    //        : base(IHTTPConnection, HTTPContentType.JSON_UTF8)
+    //    { }
 
-        #endregion
+    //    #endregion
+
+    //    #endregion
 
 
-        #region (protected) VertexSerialization(...)
+    //    #region GET_Graphs()
 
-        /// <summary>
-        /// Serialize a single vertex.
-        /// </summary>
-        /// <param name="Vertex">A single vertex.</param>
-        /// <returns>The serialized vertex.</returns>
-        protected override Byte[] VertexSerialization(IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                             TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                             TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                             TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> Vertex)
-        {
+    //    /// <summary>
+    //    /// Return an overview of all graphs.
+    //    /// </summary>
+    //    public override HTTPResponse GET_Graphs()
+    //    {
 
-            return new JObject(
-                       new JProperty("PropertyVertex",
-                           new JObject(
-                               from   KeyValuePair
-                               in     Vertex
-                               select new JProperty(KeyValuePair.Key.ToString(), KeyValuePair.Value.ToString())
-                           )
-                       )
-                     ).ToString().
-                       ToUTF8Bytes();
+    //        var _Content = new JObject(
+    //                               new JProperty("AllGraphs",
+    //                                   new JObject(
+    //                                       from Graph in GraphServer select new JProperty(Graph.Id.ToString(), Graph[VertexPropertyKeyParser("Description")])
+    //                                   )
+    //                               )
+    //                           ).ToString();
 
-        }
+    //        return new HTTPResponseBuilder()
+    //        {
+    //            HTTPStatusCode = HTTPStatusCode.OK,
+    //            ContentType    = this.HTTPContentTypes.First(),
+    //            Content        = _Content.ToUTF8Bytes()
+    //        };
 
-        #endregion
+    //    }
 
-        #region (protected) VerticesSerialization(...)
+    //    /// <summary>
+    //    /// Get a list of all graphs.
+    //    /// </summary>
+    //    //  COUNT /graphs
+    //    //  "HTTPBody: {",
+    //    //     "\"GraphFilter\" : \"...\"",
+    //    //     "\"SELECT\"      : [ \"Name\", \"Age\" ],",
+    //    //  "}",
+    //    public override HTTPResponse COUNT_Graphs()
+    //    {
 
-        /// <summary>
-        /// Serialize an enumeration of vertices.
-        /// </summary>
-        /// <param name="Vertices">An enumeration of vertices.</param>
-        /// <returns>The serialized vertex.</returns>
-        protected override Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                                                           TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                                                           TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                                                           TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Vertices)
-        {
+    //        var Result = base.COUNT_Graphs_protected();
 
-            return new JArray(  ( from Vertex
-                                  in   Vertices
-                                  select
-                                      new JObject(
-                                          new JProperty("PropertyVertex",
-                                              new JObject(
-                                                  from   KeyValuePair
-                                                  in     Vertex
-                                                  select new JProperty(KeyValuePair.Key.ToString(), KeyValuePair.Value.ToString())
-                                              )
-                                          )
-                                      )
-                                  ).ToArray()
-                              ).ToString().
-                                ToUTF8Bytes();
+    //        if (Result.HasErrors)
+    //            return Result.Error;
 
-        }
+    //        ParseCallbackParameter();
 
-        #endregion
+    //        return new HTTPResponseBuilder()
+    //        {
+    //            HTTPStatusCode = HTTPStatusCode.OK,
+    //            ContentType    = this.HTTPContentTypes.First(),
+    //            Content        = ((Callback.IsValueCreated) ? Callback.Value + "([ " + Result.Data + " ])" : "[ " + Result.Data + " ]").ToUTF8Bytes()
+    //        };
 
-    }
+    //    }
+
+    //    #endregion
+
+
+    //    #region (protected) VertexSerialization(...)
+
+    //    /// <summary>
+    //    /// Serialize a single vertex.
+    //    /// </summary>
+    //    /// <param name="Vertex">A single vertex.</param>
+    //    /// <returns>The serialized vertex.</returns>
+    //    protected override Byte[] VertexSerialization(IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                                                         TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                                                         TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                                                         TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> Vertex)
+    //    {
+
+    //        return new JObject(
+    //                   new JProperty("PropertyVertex",
+    //                       new JObject(
+    //                           from   KeyValuePair
+    //                           in     Vertex
+    //                           select new JProperty(KeyValuePair.Key.ToString(), KeyValuePair.Value.ToString())
+    //                       )
+    //                   )
+    //                 ).ToString().
+    //                   ToUTF8Bytes();
+
+    //    }
+
+    //    #endregion
+
+    //    #region (protected) VerticesSerialization(...)
+
+    //    /// <summary>
+    //    /// Serialize an enumeration of vertices.
+    //    /// </summary>
+    //    /// <param name="Vertices">An enumeration of vertices.</param>
+    //    /// <returns>The serialized vertex.</returns>
+    //    protected override Byte[] VerticesSerialization(IEnumerable<IGenericPropertyVertex<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                                                                       TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                                                                       TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                                                                       TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>> Vertices)
+    //    {
+
+    //        return new JArray(  ( from Vertex
+    //                              in   Vertices
+    //                              select
+    //                                  new JObject(
+    //                                      new JProperty("PropertyVertex",
+    //                                          new JObject(
+    //                                              from   KeyValuePair
+    //                                              in     Vertex
+    //                                              select new JProperty(KeyValuePair.Key.ToString(), KeyValuePair.Value.ToString())
+    //                                          )
+    //                                      )
+    //                                  )
+    //                              ).ToArray()
+    //                          ).ToString().
+    //                            ToUTF8Bytes();
+
+    //    }
+
+    //    #endregion
+
+    //}
 
 }

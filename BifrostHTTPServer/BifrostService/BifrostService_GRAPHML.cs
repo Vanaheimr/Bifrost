@@ -33,116 +33,116 @@ using System.Collections.Generic;
 namespace eu.Vanaheimr.Bifrost.HTTP.Server
 {
 
-    /// <summary>
-    /// GRAPHML content representation.
-    /// </summary>
-    public class BifrostService_GRAPHML<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                        TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                        TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                        TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
+    ///// <summary>
+    ///// GRAPHML content representation.
+    ///// </summary>
+    //public class BifrostService_GRAPHML<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                    TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                    TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                    TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
 
-                                        : ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
-                                                          TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
-                                                          TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
-                                                          TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
-
-
-        where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
-        where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
-        where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
-        where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
-
-        where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
-        where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
-        where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
-        where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
-
-        where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
-        where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
-        where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
-        where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
-
-        where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
-        where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
-        where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
-        where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
-
-    {
-
-        #region Constructor(s)
-
-        #region BifrostService_GRAPHML()
-
-        /// <summary>
-        /// GRAPHML content representation.
-        /// </summary>
-        public BifrostService_GRAPHML()
-            : base(HTTPContentType.GRAPHML_UTF8)
-        { }
-
-        #endregion
-
-        #region BifrostService_GRAPHML(IHTTPConnection)
-
-        /// <summary>
-        /// GRAPHML content representation.
-        /// </summary>
-        /// <param name="IHTTPConnection">The http connection for this request.</param>
-        public BifrostService_GRAPHML(IHTTPConnection IHTTPConnection)
-            : base(IHTTPConnection, HTTPContentType.GRAPHML_UTF8)
-        { }
-
-        #endregion
-
-        #endregion
+    //                                    : ABifrostService<TIdVertex,    TRevIdVertex,    TVertexLabel,    TKeyVertex,    TValueVertex,
+    //                                                      TIdEdge,      TRevIdEdge,      TEdgeLabel,      TKeyEdge,      TValueEdge,
+    //                                                      TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge,
+    //                                                      TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge>
 
 
-        #region /graph/{GraphId}
+    //    where TIdVertex        : IEquatable<TIdVertex>,       IComparable<TIdVertex>,       IComparable, TValueVertex
+    //    where TIdEdge          : IEquatable<TIdEdge>,         IComparable<TIdEdge>,         IComparable, TValueEdge
+    //    where TIdMultiEdge     : IEquatable<TIdMultiEdge>,    IComparable<TIdMultiEdge>,    IComparable, TValueMultiEdge
+    //    where TIdHyperEdge     : IEquatable<TIdHyperEdge>,    IComparable<TIdHyperEdge>,    IComparable, TValueHyperEdge
 
-        /// <summary>
-        /// Return the graph associated with the given graph identification.
-        /// </summary>
-        /// <param name="GraphId">The identification of the graph to return.</param>
-        public override HTTPResponse GET_GraphById(String GraphId)
-        {
+    //    where TRevIdVertex     : IEquatable<TRevIdVertex>,    IComparable<TRevIdVertex>,    IComparable, TValueVertex
+    //    where TRevIdEdge       : IEquatable<TRevIdEdge>,      IComparable<TRevIdEdge>,      IComparable, TValueEdge
+    //    where TRevIdMultiEdge  : IEquatable<TRevIdMultiEdge>, IComparable<TRevIdMultiEdge>, IComparable, TValueMultiEdge
+    //    where TRevIdHyperEdge  : IEquatable<TRevIdHyperEdge>, IComparable<TRevIdHyperEdge>, IComparable, TValueHyperEdge
 
-            var StringBuilder = new StringBuilder();
-            var GraphResult   = base.GET_GraphById_protected(GraphId);
+    //    where TVertexLabel     : IEquatable<TVertexLabel>,    IComparable<TVertexLabel>,    IComparable, TValueVertex
+    //    where TEdgeLabel       : IEquatable<TEdgeLabel>,      IComparable<TEdgeLabel>,      IComparable, TValueEdge
+    //    where TMultiEdgeLabel  : IEquatable<TMultiEdgeLabel>, IComparable<TMultiEdgeLabel>, IComparable, TValueMultiEdge
+    //    where THyperEdgeLabel  : IEquatable<THyperEdgeLabel>, IComparable<THyperEdgeLabel>, IComparable, TValueHyperEdge
 
-            if (GraphResult.HasErrors)
-                return GraphResult.Error;
+    //    where TKeyVertex       : IEquatable<TKeyVertex>,      IComparable<TKeyVertex>,      IComparable
+    //    where TKeyEdge         : IEquatable<TKeyEdge>,        IComparable<TKeyEdge>,        IComparable
+    //    where TKeyMultiEdge    : IEquatable<TKeyMultiEdge>,   IComparable<TKeyMultiEdge>,   IComparable
+    //    where TKeyHyperEdge    : IEquatable<TKeyHyperEdge>,   IComparable<TKeyHyperEdge>,   IComparable
 
-            if (GraphResult.Data != null)
-            {
+    //{
 
-                StringBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-                StringBuilder.AppendLine("<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\"");
-                StringBuilder.AppendLine("    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-                StringBuilder.AppendLine("    xsi:schemaLocation=\"http://graphml.graphdrawing.org/xmlns");
-                StringBuilder.AppendLine("     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd\">");
-                StringBuilder.AppendLine("  <graph id=\"" + GraphResult.Data.Id + "\" edgedefault=\"directed\">");
+    //    #region Constructor(s)
 
-                GraphResult.Data.Vertices().ForEach(Vertex => StringBuilder.AppendLine("    <node id=\"" + Vertex.Id + "\" />"));
+    //    #region BifrostService_GRAPHML()
 
-                GraphResult.Data.Edges().   ForEach(Edge   => StringBuilder.AppendLine("    <edge id=\"" + Edge.Id + "\" directed=\"true\" source=\"" + Edge.OutVertex.Id + "\" target=\"" + Edge.InVertex.Id + "\" />"));
+    //    /// <summary>
+    //    /// GRAPHML content representation.
+    //    /// </summary>
+    //    public BifrostService_GRAPHML()
+    //        : base(HTTPContentType.GRAPHML_UTF8)
+    //    { }
 
-                StringBuilder.AppendLine("  </graph>");
-                StringBuilder.AppendLine("</graphml>");
+    //    #endregion
 
-            }
+    //    #region BifrostService_GRAPHML(IHTTPConnection)
 
-            return new HTTPResponseBuilder()
-            {
-                HTTPStatusCode = HTTPStatusCode.OK,
-                ContentType    = HTTPContentTypes.First(),
-                Content        = StringBuilder.ToString().ToUTF8Bytes()
-            };
+    //    /// <summary>
+    //    /// GRAPHML content representation.
+    //    /// </summary>
+    //    /// <param name="IHTTPConnection">The http connection for this request.</param>
+    //    public BifrostService_GRAPHML(IHTTPConnection IHTTPConnection)
+    //        : base(IHTTPConnection, HTTPContentType.GRAPHML_UTF8)
+    //    { }
 
-        }
+    //    #endregion
 
-        #endregion
+    //    #endregion
 
 
-    }
+    //    #region /graph/{GraphId}
+
+    //    /// <summary>
+    //    /// Return the graph associated with the given graph identification.
+    //    /// </summary>
+    //    /// <param name="GraphId">The identification of the graph to return.</param>
+    //    public override HTTPResponse GET_GraphById(String GraphId)
+    //    {
+
+    //        var StringBuilder = new StringBuilder();
+    //        var GraphResult   = base.GET_GraphById_protected(GraphId);
+
+    //        if (GraphResult.HasErrors)
+    //            return GraphResult.Error;
+
+    //        if (GraphResult.Data != null)
+    //        {
+
+    //            StringBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    //            StringBuilder.AppendLine("<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\"");
+    //            StringBuilder.AppendLine("    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
+    //            StringBuilder.AppendLine("    xsi:schemaLocation=\"http://graphml.graphdrawing.org/xmlns");
+    //            StringBuilder.AppendLine("     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd\">");
+    //            StringBuilder.AppendLine("  <graph id=\"" + GraphResult.Data.Id + "\" edgedefault=\"directed\">");
+
+    //            GraphResult.Data.Vertices().ForEach(Vertex => StringBuilder.AppendLine("    <node id=\"" + Vertex.Id + "\" />"));
+
+    //            GraphResult.Data.Edges().   ForEach(Edge   => StringBuilder.AppendLine("    <edge id=\"" + Edge.Id + "\" directed=\"true\" source=\"" + Edge.OutVertex.Id + "\" target=\"" + Edge.InVertex.Id + "\" />"));
+
+    //            StringBuilder.AppendLine("  </graph>");
+    //            StringBuilder.AppendLine("</graphml>");
+
+    //        }
+
+    //        return new HTTPResponseBuilder()
+    //        {
+    //            HTTPStatusCode = HTTPStatusCode.OK,
+    //            ContentType    = HTTPContentTypes.First(),
+    //            Content        = StringBuilder.ToString().ToUTF8Bytes()
+    //        };
+
+    //    }
+
+    //    #endregion
+
+
+    //}
 
 }
