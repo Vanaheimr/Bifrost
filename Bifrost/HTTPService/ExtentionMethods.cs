@@ -19,12 +19,12 @@
 
 using System;
 
-using eu.Vanaheimr.Balder;
-using eu.Vanaheimr.Hermod;
+using org.GraphDefined.Vanaheimr.Balder;
+using org.GraphDefined.Vanaheimr.Hermod;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost.HTTP.Server
+namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Server
 {
 
     ///// <summary>

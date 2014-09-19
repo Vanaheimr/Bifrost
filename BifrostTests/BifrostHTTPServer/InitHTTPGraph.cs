@@ -21,9 +21,9 @@ using System;
 
 using NUnit.Framework;
 
-using eu.Vanaheimr.Bifrost.HTTP.Server;
-using eu.Vanaheimr.Balder.InMemory;
-using eu.Vanaheimr.Illias.Commons.Votes;
+using org.GraphDefined.Vanaheimr.Bifrost;
+using org.GraphDefined.Vanaheimr.Balder.InMemory;
+using org.GraphDefined.Vanaheimr.Illias.Votes;
 
 #endregion
 
@@ -37,26 +37,26 @@ namespace de.ahzf.Bifrost.UnitTests.GraphServerTests
     public class InitGraphServer
     {
 
-        protected IBifrostHTTPServer<String, Int64, String, String, Object,
-                                     String, Int64, String, String, Object,
-                                     String, Int64, String, String, Object,
-                                     String, Int64, String, String, Object>
+        //protected IBifrostHTTPServer<String, Int64, String, String, Object,
+        //                             String, Int64, String, String, Object,
+        //                             String, Int64, String, String, Object,
+        //                             String, Int64, String, String, Object>
 
-            CreateGraph(String GraphId)
+        //    CreateGraph(String GraphId)
 
-        {
+        //{
 
-            var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object,
-                                                    String, Int64, String, String, Object>
+        //    var GraphServer = new BifrostHTTPServer<String, Int64, String, String, Object,
+        //                                            String, Int64, String, String, Object,
+        //                                            String, Int64, String, String, Object,
+        //                                            String, Int64, String, String, Object>
 
-                                     ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init));
+        //                             ((id, descr, init) => GraphFactory.CreateGenericPropertyGraph_WithStringIds(id, descr, () => new VetoVote(), init));
 
-            GraphServer.CreateNewGraph(GraphId);
-            return GraphServer;
+        //    GraphServer.CreateNewGraph(GraphId);
+        //    return GraphServer;
 
-        }
+        //}
 
     }
 

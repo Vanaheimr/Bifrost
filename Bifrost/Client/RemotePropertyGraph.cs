@@ -21,16 +21,16 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-using eu.Vanaheimr.Balder;
-using eu.Vanaheimr.Illias.Commons;
-using eu.Vanaheimr.Illias.Commons.Collections;
-using eu.Vanaheimr.Illias.Commons.Transactions;
-using eu.Vanaheimr.Hermod;
-using eu.Vanaheimr.Hermod.HTTP;
+using org.GraphDefined.Vanaheimr.Balder;
+using org.GraphDefined.Vanaheimr.Illias;
+using org.GraphDefined.Vanaheimr.Illias.Collections;
+using org.GraphDefined.Vanaheimr.Illias.Transactions;
+using org.GraphDefined.Vanaheimr.Hermod;
+using org.GraphDefined.Vanaheimr.Hermod.HTTP;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost.HTTP.Client
+namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
 {
 
     /// <summary>
@@ -300,7 +300,7 @@ namespace eu.Vanaheimr.Bifrost.HTTP.Client
 
         #region District of chaos, discord and confusion!
 
-        public Func<Illias.Commons.Votes.IVote<bool>> VoteCreator
+        public Func<Illias.Votes.IVote<bool>> VoteCreator
         {
             get { throw new NotImplementedException(); }
         }

@@ -23,7 +23,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost
+namespace org.GraphDefined.Vanaheimr.Bifrost
 {
 
     // {

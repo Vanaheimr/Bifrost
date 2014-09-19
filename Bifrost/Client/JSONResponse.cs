@@ -25,7 +25,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost.HTTP
+namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP
 {
 
     // General JSON format:

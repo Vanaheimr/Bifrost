@@ -21,13 +21,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-using eu.Vanaheimr.Balder;
-using eu.Vanaheimr.Hermod.HTTP;
-using eu.Vanaheimr.Hermod;
+using org.GraphDefined.Vanaheimr.Balder;
+using org.GraphDefined.Vanaheimr.Hermod.HTTP;
+using org.GraphDefined.Vanaheimr.Hermod;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost.HTTP.Server
+namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Server
 {
 
     //#region BifrostHTTPServer

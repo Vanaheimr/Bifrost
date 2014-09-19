@@ -19,14 +19,14 @@
 
 using System;
 
-using eu.Vanaheimr.Balder;
-using eu.Vanaheimr.Hermod.Multicast;
-using eu.Vanaheimr.Styx.Arrows;
-using eu.Vanaheimr.Hermod;
+using org.GraphDefined.Vanaheimr.Balder;
+using org.GraphDefined.Vanaheimr.Hermod.Multicast;
+using org.GraphDefined.Vanaheimr.Styx.Arrows;
+using org.GraphDefined.Vanaheimr.Hermod;
 
 #endregion
 
-namespace eu.Vanaheimr.Bifrost.Multicast
+namespace org.GraphDefined.Vanaheimr.Bifrost.Multicast
 {
 
     /// <summary>

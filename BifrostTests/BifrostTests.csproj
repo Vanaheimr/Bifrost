@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BifrostTests</RootNamespace>
     <AssemblyName>BifrostTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -49,61 +52,49 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Balder\BalderGraphs\BalderGraphs.csproj">
+      <Project>{562ac94f-60ea-4911-8c62-684f02867783}</Project>
+      <Name>BalderGraphs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Balder\Balder\Balder.csproj">
-      <Project>{D2B4E7C7-0524-4DE5-9D62-2DE05682A74D}</Project>
+      <Project>{d2b4e7c7-0524-4de5-9d62-2de05682a74d}</Project>
       <Name>Balder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Balder\BalderGraphs\BalderGraphs.csproj">
-      <Project>{562AC94F-60EA-4911-8C62-684F02867783}</Project>
-      <Name>PropertyGraphs</Name>
+    <ProjectReference Include="..\..\Balder\JurassicGraphs\JurassicGraphs.csproj">
+      <Project>{b84c5392-ca7e-4f8a-a406-a55e31c1b04a}</Project>
+      <Name>JurassicGraphs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BifrostHTTPClient\BifrostHTTPClient.csproj">
-      <Project>{EB31E37B-FA75-44FD-9528-171C9E7C3C37}</Project>
-      <Name>BifrostHTTPClient</Name>
+    <ProjectReference Include="..\..\Eunomia\Eunomia\Eunomia.csproj">
+      <Project>{1df1a588-33b1-4168-9487-604fe5680681}</Project>
+      <Name>Eunomia</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BifrostHTTPServer\BifrostHTTPServer.csproj">
-      <Project>{DC46B5EF-ECC5-465E-B1C4-85596343A03F}</Project>
-      <Name>BifrostHTTPServer</Name>
+    <ProjectReference Include="..\..\Hermod\Hermod\Hermod.csproj">
+      <Project>{477efd16-3627-4473-957d-44ca9a9dfb79}</Project>
+      <Name>Hermod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Illias\Illias.NET4.5\Illias.NET4.5.csproj">
+      <Project>{23d37453-2d4e-4bd8-b40f-3e731fee7712}</Project>
+      <Name>Illias.NET4.5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Illias\Illias\Illias.csproj">
+      <Project>{e156f18d-d41c-4529-9bcc-9962e6ee25da}</Project>
+      <Name>Illias</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Jurassic\Jurassic\Jurassic.csproj">
+      <Project>{9b109b9c-4b72-4bdb-b531-627d7e93011e}</Project>
+      <Name>Jurassic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Styx\Styx.NET4.5\Styx.NET4.5.csproj">
+      <Project>{af76ecc0-2ca5-4cff-9e1e-ff5478c4b6e4}</Project>
+      <Name>Styx.NET4.5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Styx\Styx\Styx.csproj">
+      <Project>{3949790d-8591-4101-9e4d-ce7a758e7409}</Project>
+      <Name>Styx</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bifrost\Bifrost.csproj">
       <Project>{F6FA73F9-14B4-4033-AAFE-9BFA66BD98F5}</Project>
       <Name>Bifrost</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Hermod\HermodHTTPClient\HermodHTTPClient.csproj">
-      <Project>{0AB343E8-AA69-4685-9676-BFA27E418A20}</Project>
-      <Name>HermodHTTPClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Hermod\HermodHTTPServer\HermodHTTPServer.csproj">
-      <Project>{9CE48DAC-0512-4947-942B-EF4C42C52B47}</Project>
-      <Name>HermodHTTPServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Hermod\HermodHTTP\HermodHTTP.csproj">
-      <Project>{9A00BD39-1385-4DB4-8F38-363BB947CCB4}</Project>
-      <Name>HermodHTTP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Hermod\HermodTests\HermodTests.csproj">
-      <Project>{8F1ABEE3-CFF0-47D6-A872-25112A74CCDA}</Project>
-      <Name>HermodTests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Hermod\Hermod\Hermod.csproj">
-      <Project>{477EFD16-3627-4473-957D-44CA9A9DFB79}</Project>
-      <Name>Hermod</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Illias\CommonsTests\CommonsTests.csproj">
-      <Project>{02A5F706-A9AC-46BE-A428-EA6F990D8E21}</Project>
-      <Name>CommonsTests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Illias\Commons\Commons.csproj">
-      <Project>{16C85DF8-5DE6-4A9F-9FC7-7CA5B0440DF3}</Project>
-      <Name>Commons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Styx\StyxTests\StyxTests.csproj">
-      <Project>{6F2452F5-BF16-4577-9C5A-85C8D7B5289D}</Project>
-      <Name>StyxTests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Styx\Styx\Styx.csproj">
-      <Project>{3949790D-8591-4101-9E4D-CE7A758E7409}</Project>
-      <Name>Styx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
