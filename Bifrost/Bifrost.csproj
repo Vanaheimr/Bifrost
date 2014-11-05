@@ -112,114 +112,70 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\file.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\file.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\droparea.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\droparea.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\index.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\LICENCE">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\LICENCE" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\log.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\log.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\README">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\README" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\upload.php">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\droparea\upload.php" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\jquery\jquery-1.6.1.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\jquery\jquery-1.6.1.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\bootstrap-responsive.min.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\bootstrap-responsive.min.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\bootstrap.min.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\bootstrap.min.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\prettify.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\prettify.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\style.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\css\style.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\favicon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\index.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\prettify.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\prettify.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\sigma.forceatlas2.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\sigma.forceatlas2.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\sigma.js\sigma.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\sigma.js\sigma.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\termlib\term_styles.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\termlib\term_styles.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\termlib\termlib.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\termlib\termlib.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_parser.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_parser.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_parser_min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="HTTPService\resources\termlib\termlib_parser_min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
