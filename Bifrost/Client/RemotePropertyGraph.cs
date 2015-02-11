@@ -948,6 +948,11 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
         {
             get { throw new NotImplementedException(); }
         }
+
+        public IReadOnlyGenericPropertyEdge<TIdVertex, TRevIdVertex, TVertexLabel, TKeyVertex, TValueVertex, TIdEdge, TRevIdEdge, TEdgeLabel, TKeyEdge, TValueEdge, TIdMultiEdge, TRevIdMultiEdge, TMultiEdgeLabel, TKeyMultiEdge, TValueMultiEdge, TIdHyperEdge, TRevIdHyperEdge, THyperEdgeLabel, TKeyHyperEdge, TValueHyperEdge> RemoveEdgeById(TIdEdge EdgeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
