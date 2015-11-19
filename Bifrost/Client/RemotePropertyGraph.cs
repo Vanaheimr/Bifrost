@@ -279,7 +279,7 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
 
         #region (private) DoGET(Url, HTTPContentType = null, Action = null)
 
-        private Task<HTTPClient> DoGET(String Url, HTTPContentType HTTPContentType = null, Action<String> Action = null)
+        private async Task<HTTPClient> DoGET(String Url, HTTPContentType HTTPContentType = null, Action<String> Action = null)
         {
 
             var _HTTPContentType = (HTTPContentType != null) ? HTTPContentType : this.HTTPContentType;
@@ -291,7 +291,9 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
                                             SetConnection("keep-alive").
                                             AddAccept(_HTTPContentType, 1);
 
-            return HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.Content.ToUTF8String()); });
+            var result = await HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.Content.ToUTF8String()); });
+
+            return _HTTPClient;
 
         }
 
