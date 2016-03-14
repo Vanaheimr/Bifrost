@@ -83,17 +83,10 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
         /// </summary>
         public IIPAddress RemoteIPAddress
         {
-
             get
             {
                 return HTTPClient.RemoteIPAddress;
             }
-
-            set
-            {
-                HTTPClient.RemoteIPAddress = value;
-            }
-
         }
 
         #endregion
@@ -105,17 +98,10 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
         /// </summary>
         public IPPort RemotePort
         {
-
             get
             {
                 return HTTPClient.RemotePort;
             }
-
-            set
-            {
-                HTTPClient.RemotePort = value;
-            }
-
         }
 
         #endregion
@@ -127,17 +113,10 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
         /// </summary>
         public IPSocket RemoteSocket
         {
-
             get
             {
                 return HTTPClient.RemoteSocket;
             }
-
-            set
-            {
-                HTTPClient.RemoteSocket = value;
-            }
-
         }
 
         #endregion
@@ -291,7 +270,7 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
                                             SetConnection("keep-alive").
                                             AddAccept(_HTTPContentType, 1);
 
-            var result = await HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.Content.ToUTF8String()); });
+            var result = await HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.HTTPBody.ToUTF8String()); });
 
             return _HTTPClient;
 
