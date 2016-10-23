@@ -270,7 +270,7 @@ namespace org.GraphDefined.Vanaheimr.Bifrost.HTTP.Client
                                             SetConnection("keep-alive").
                                             AddAccept(_HTTPContentType, 1);
 
-            var result = await HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.HTTPBody.ToUTF8String()); });
+            //var result = await HTTPClient.Execute(_Request, (request, response) => { if (Action != null) Action(response.HTTPBody.ToUTF8String()); });
 
             return _HTTPClient;
 
